@@ -1,0 +1,1498 @@
+{
+  "created_at": "2026-11-19T19:53:04.147161+00:00",
+  "scope": "Assistant-authored synthetic development corpus, frozen before first run; no independent human annotation. Scenario relevance measures explicit use-context evidence, not general topic relevance or suitability.",
+  "corpus_sha256": "871969915b127c8d2d0d3fae721c7a513b39f65903d29c3628fc543313fc27e0",
+  "code_sha256": {
+    "hybrid.py": "a4d53ebb8d8f3d0c3fdebc8d74486dd620707ef8d5f91253235be83c03800686",
+    "evaluate_original_query.py": "dafad9ad3e355a0e90a3f447b4bda0904a190a68754bf7d0f4318e32e72a314d"
+  },
+  "model": "text-embedding-3-small",
+  "alpha": 0.2,
+  "top_k": 5,
+  "budget": {
+    "max_calls": 8,
+    "max_rss_mib": 256,
+    "max_seconds": 180,
+    "max_response_bytes": 4194304
+  },
+  "protocol": "Production shortlist, coverage-first. One source per candidate, same top-5 source/candidate budget. Semantic baseline uses theme vector rank only. Original-only is diagnostic. Scenario recall is distinct from previous topic recall. No generator used.",
+  "cases": [
+    {
+      "id": "day",
+      "query": "我白天开视频会议，希望网络稳定。",
+      "relevant": [
+        "day-good",
+        "day-risk"
+      ],
+      "risks": [
+        "day-risk"
+      ],
+      "metrics": {
+        "current_hybrid": {
+          "retrieved": [
+            "day-risk",
+            "day-good",
+            "amenity",
+            "short-risk",
+            "distractor"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 1.0,
+          "risk_recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "missed_risks": []
+        },
+        "theme_vector": {
+          "retrieved": [
+            "day-risk",
+            "short-risk",
+            "day-good",
+            "long-risk",
+            "amenity"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 1.0,
+          "risk_recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "missed_risks": []
+        },
+        "hybrid_plus_original": {
+          "retrieved": [
+            "day-risk",
+            "day-good",
+            "short-risk",
+            "amenity",
+            "distractor"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 1.0,
+          "risk_recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "missed_risks": []
+        },
+        "original_only_diagnostic": {
+          "retrieved": [
+            "night-cn",
+            "day-risk",
+            "night-good",
+            "night-risk",
+            "short-risk"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.5,
+          "risk_recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "missed_risks": []
+        }
+      },
+      "new_relevant": [],
+      "displaced_relevant": [],
+      "displaced_risks": [],
+      "original_ranking": [
+        {
+          "source_id": "night-cn",
+          "distance": 0.4313945312453664
+        },
+        {
+          "source_id": "day-risk",
+          "distance": 0.5111701350904464
+        },
+        {
+          "source_id": "night-good",
+          "distance": 0.5536737368981397
+        },
+        {
+          "source_id": "night-risk",
+          "distance": 0.5606968341520522
+        },
+        {
+          "source_id": "short-risk",
+          "distance": 0.5621914099588845
+        },
+        {
+          "source_id": "day-good",
+          "distance": 0.5760624591744881
+        },
+        {
+          "source_id": "long-good",
+          "distance": 0.5779299567603071
+        },
+        {
+          "source_id": "long-risk",
+          "distance": 0.6082606818998362
+        },
+        {
+          "source_id": "short-good",
+          "distance": 0.6103107521825741
+        },
+        {
+          "source_id": "quiet",
+          "distance": 0.7295098980163435
+        },
+        {
+          "source_id": "distractor",
+          "distance": 0.7440741489676967
+        },
+        {
+          "source_id": "amenity",
+          "distance": 0.7537617833904692
+        }
+      ],
+      "scores": {
+        "day-good": {
+          "baseline": 0.976062,
+          "augmented": 0.965698,
+          "topic_mean": 0.9760624679979518,
+          "original": 0.9242424242424242,
+          "topics": {
+            "video_calls": 0.9760624679979518
+          }
+        },
+        "day-risk": {
+          "baseline": 0.984127,
+          "augmented": 0.984076,
+          "topic_mean": 0.9841269841269842,
+          "original": 0.9838709677419354,
+          "topics": {
+            "video_calls": 0.9841269841269842
+          }
+        },
+        "night-good": {
+          "baseline": 0.448529,
+          "augmented": 0.552474,
+          "topic_mean": 0.44852941176470584,
+          "original": 0.9682539682539681,
+          "topics": {
+            "video_calls": 0.44852941176470584
+          }
+        },
+        "night-risk": {
+          "baseline": 0.455224,
+          "augmented": 0.554804,
+          "topic_mean": 0.45522388059701485,
+          "original": 0.953125,
+          "topics": {
+            "video_calls": 0.4552238805970149
+          }
+        },
+        "short-good": {
+          "baseline": 0.462121,
+          "augmented": 0.546509,
+          "topic_mean": 0.4621212121212121,
+          "original": 0.8840579710144927,
+          "topics": {
+            "video_calls": 0.4621212121212121
+          }
+        },
+        "short-risk": {
+          "baseline": 0.968498,
+          "augmented": 0.962491,
+          "topic_mean": 0.9684979838709676,
+          "original": 0.9384615384615385,
+          "topics": {
+            "video_calls": 0.9684979838709676
+          }
+        },
+        "long-good": {
+          "baseline": 0.435714,
+          "augmented": 0.530661,
+          "topic_mean": 0.43571428571428567,
+          "original": 0.9104477611940298,
+          "topics": {
+            "video_calls": 0.43571428571428567
+          }
+        },
+        "long-risk": {
+          "baseline": 0.476562,
+          "augmented": 0.560662,
+          "topic_mean": 0.4765625,
+          "original": 0.8970588235294117,
+          "topics": {
+            "video_calls": 0.4765625
+          }
+        },
+        "amenity": {
+          "baseline": 0.969231,
+          "augmented": 0.944829,
+          "topic_mean": 0.9692307692307693,
+          "original": 0.8472222222222221,
+          "topics": {
+            "video_calls": 0.9692307692307693
+          }
+        },
+        "distractor": {
+          "baseline": 0.898808,
+          "augmented": 0.890878,
+          "topic_mean": 0.8988082340195017,
+          "original": 0.8591549295774648,
+          "topics": {
+            "video_calls": 0.8988082340195017
+          }
+        },
+        "night-cn": {
+          "baseline": 0.442029,
+          "augmented": 0.553623,
+          "topic_mean": 0.44202898550724634,
+          "original": 1.0,
+          "topics": {
+            "video_calls": 0.44202898550724634
+          }
+        },
+        "quiet": {
+          "baseline": 0.885732,
+          "augmented": 0.882872,
+          "topic_mean": 0.8857323232323232,
+          "original": 0.8714285714285713,
+          "topics": {
+            "video_calls": 0.8857323232323232
+          }
+        }
+      }
+    },
+    {
+      "id": "night",
+      "query": "我凌晨开视频会议，希望网络稳定。",
+      "relevant": [
+        "night-good",
+        "night-risk",
+        "night-cn"
+      ],
+      "risks": [
+        "night-risk",
+        "night-cn"
+      ],
+      "metrics": {
+        "current_hybrid": {
+          "retrieved": [
+            "day-risk",
+            "day-good",
+            "amenity",
+            "short-risk",
+            "distractor"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "risk_recall_at_k": 0.0,
+          "reciprocal_rank": 0,
+          "missed_risks": [
+            "night-cn",
+            "night-risk"
+          ]
+        },
+        "theme_vector": {
+          "retrieved": [
+            "day-risk",
+            "short-risk",
+            "day-good",
+            "long-risk",
+            "amenity"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "risk_recall_at_k": 0.0,
+          "reciprocal_rank": 0,
+          "missed_risks": [
+            "night-cn",
+            "night-risk"
+          ]
+        },
+        "hybrid_plus_original": {
+          "retrieved": [
+            "day-risk",
+            "short-risk",
+            "day-good",
+            "amenity",
+            "distractor"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "risk_recall_at_k": 0.0,
+          "reciprocal_rank": 0,
+          "missed_risks": [
+            "night-cn",
+            "night-risk"
+          ]
+        },
+        "original_only_diagnostic": {
+          "retrieved": [
+            "night-cn",
+            "day-risk",
+            "night-good",
+            "short-risk",
+            "long-good"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.6666666666666666,
+          "risk_recall_at_k": 0.5,
+          "reciprocal_rank": 1.0,
+          "missed_risks": [
+            "night-risk"
+          ]
+        }
+      },
+      "new_relevant": [],
+      "displaced_relevant": [],
+      "displaced_risks": [],
+      "original_ranking": [
+        {
+          "source_id": "night-cn",
+          "distance": 0.4176761733593283
+        },
+        {
+          "source_id": "day-risk",
+          "distance": 0.5089342993446798
+        },
+        {
+          "source_id": "night-good",
+          "distance": 0.5230525068592203
+        },
+        {
+          "source_id": "short-risk",
+          "distance": 0.5385303207890455
+        },
+        {
+          "source_id": "long-good",
+          "distance": 0.5637646087034278
+        },
+        {
+          "source_id": "night-risk",
+          "distance": 0.5665736013813243
+        },
+        {
+          "source_id": "day-good",
+          "distance": 0.5679271760388485
+        },
+        {
+          "source_id": "short-good",
+          "distance": 0.5839355151151137
+        },
+        {
+          "source_id": "long-risk",
+          "distance": 0.5981050004708144
+        },
+        {
+          "source_id": "quiet",
+          "distance": 0.7310415481688483
+        },
+        {
+          "source_id": "distractor",
+          "distance": 0.7345250556560124
+        },
+        {
+          "source_id": "amenity",
+          "distance": 0.7491537257284937
+        }
+      ],
+      "scores": {
+        "day-good": {
+          "baseline": 0.976062,
+          "augmented": 0.96294,
+          "topic_mean": 0.9760624679979518,
+          "original": 0.9104477611940298,
+          "topics": {
+            "video_calls": 0.9760624679979518
+          }
+        },
+        "day-risk": {
+          "baseline": 0.984127,
+          "augmented": 0.984076,
+          "topic_mean": 0.9841269841269842,
+          "original": 0.9838709677419354,
+          "topics": {
+            "video_calls": 0.9841269841269842
+          }
+        },
+        "night-good": {
+          "baseline": 0.448529,
+          "augmented": 0.552474,
+          "topic_mean": 0.44852941176470584,
+          "original": 0.9682539682539681,
+          "topics": {
+            "video_calls": 0.44852941176470584
+          }
+        },
+        "night-risk": {
+          "baseline": 0.455224,
+          "augmented": 0.549028,
+          "topic_mean": 0.45522388059701485,
+          "original": 0.9242424242424242,
+          "topics": {
+            "video_calls": 0.4552238805970149
+          }
+        },
+        "short-good": {
+          "baseline": 0.462121,
+          "augmented": 0.549109,
+          "topic_mean": 0.4621212121212121,
+          "original": 0.8970588235294117,
+          "topics": {
+            "video_calls": 0.4621212121212121
+          }
+        },
+        "short-risk": {
+          "baseline": 0.968498,
+          "augmented": 0.965423,
+          "topic_mean": 0.9684979838709676,
+          "original": 0.953125,
+          "topics": {
+            "video_calls": 0.9684979838709676
+          }
+        },
+        "long-good": {
+          "baseline": 0.435714,
+          "augmented": 0.536264,
+          "topic_mean": 0.43571428571428567,
+          "original": 0.9384615384615385,
+          "topics": {
+            "video_calls": 0.43571428571428567
+          }
+        },
+        "long-risk": {
+          "baseline": 0.476562,
+          "augmented": 0.558062,
+          "topic_mean": 0.4765625,
+          "original": 0.8840579710144927,
+          "topics": {
+            "video_calls": 0.4765625
+          }
+        },
+        "amenity": {
+          "baseline": 0.969231,
+          "augmented": 0.944829,
+          "topic_mean": 0.9692307692307693,
+          "original": 0.8472222222222221,
+          "topics": {
+            "video_calls": 0.9692307692307693
+          }
+        },
+        "distractor": {
+          "baseline": 0.898808,
+          "augmented": 0.890878,
+          "topic_mean": 0.8988082340195017,
+          "original": 0.8591549295774648,
+          "topics": {
+            "video_calls": 0.8988082340195017
+          }
+        },
+        "night-cn": {
+          "baseline": 0.442029,
+          "augmented": 0.553623,
+          "topic_mean": 0.44202898550724634,
+          "original": 1.0,
+          "topics": {
+            "video_calls": 0.44202898550724634
+          }
+        },
+        "quiet": {
+          "baseline": 0.885732,
+          "augmented": 0.882872,
+          "topic_mean": 0.8857323232323232,
+          "original": 0.8714285714285713,
+          "topics": {
+            "video_calls": 0.8857323232323232
+          }
+        }
+      }
+    },
+    {
+      "id": "short",
+      "query": "我每次开十分钟视频会议，希望网络稳定。",
+      "relevant": [
+        "short-good",
+        "short-risk",
+        "long-risk"
+      ],
+      "risks": [
+        "short-risk"
+      ],
+      "metrics": {
+        "current_hybrid": {
+          "retrieved": [
+            "day-risk",
+            "day-good",
+            "amenity",
+            "short-risk",
+            "distractor"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.3333333333333333,
+          "risk_recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "missed_risks": []
+        },
+        "theme_vector": {
+          "retrieved": [
+            "day-risk",
+            "short-risk",
+            "day-good",
+            "long-risk",
+            "amenity"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.6666666666666666,
+          "risk_recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "missed_risks": []
+        },
+        "hybrid_plus_original": {
+          "retrieved": [
+            "day-risk",
+            "short-risk",
+            "day-good",
+            "amenity",
+            "distractor"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.3333333333333333,
+          "risk_recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "missed_risks": []
+        },
+        "original_only_diagnostic": {
+          "retrieved": [
+            "night-cn",
+            "short-risk",
+            "day-risk",
+            "short-good",
+            "day-good"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.6666666666666666,
+          "risk_recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "missed_risks": []
+        }
+      },
+      "new_relevant": [],
+      "displaced_relevant": [],
+      "displaced_risks": [],
+      "original_ranking": [
+        {
+          "source_id": "night-cn",
+          "distance": 0.43778192585981845
+        },
+        {
+          "source_id": "short-risk",
+          "distance": 0.4569856568773223
+        },
+        {
+          "source_id": "day-risk",
+          "distance": 0.472022456400365
+        },
+        {
+          "source_id": "short-good",
+          "distance": 0.49409424528210777
+        },
+        {
+          "source_id": "day-good",
+          "distance": 0.5058042216932033
+        },
+        {
+          "source_id": "long-risk",
+          "distance": 0.5159553217307742
+        },
+        {
+          "source_id": "night-good",
+          "distance": 0.546939223988582
+        },
+        {
+          "source_id": "long-good",
+          "distance": 0.5643504602814702
+        },
+        {
+          "source_id": "night-risk",
+          "distance": 0.572028906605571
+        },
+        {
+          "source_id": "amenity",
+          "distance": 0.7194365502218041
+        },
+        {
+          "source_id": "distractor",
+          "distance": 0.7232076157486791
+        },
+        {
+          "source_id": "quiet",
+          "distance": 0.7667728754740419
+        }
+      ],
+      "scores": {
+        "day-good": {
+          "baseline": 0.976062,
+          "augmented": 0.968542,
+          "topic_mean": 0.9760624679979518,
+          "original": 0.9384615384615385,
+          "topics": {
+            "video_calls": 0.9760624679979518
+          }
+        },
+        "day-risk": {
+          "baseline": 0.984127,
+          "augmented": 0.980952,
+          "topic_mean": 0.9841269841269842,
+          "original": 0.9682539682539681,
+          "topics": {
+            "video_calls": 0.9841269841269842
+          }
+        },
+        "night-good": {
+          "baseline": 0.448529,
+          "augmented": 0.540913,
+          "topic_mean": 0.44852941176470584,
+          "original": 0.9104477611940298,
+          "topics": {
+            "video_calls": 0.44852941176470584
+          }
+        },
+        "night-risk": {
+          "baseline": 0.455224,
+          "augmented": 0.540991,
+          "topic_mean": 0.45522388059701485,
+          "original": 0.8840579710144927,
+          "topics": {
+            "video_calls": 0.4552238805970149
+          }
+        },
+        "short-good": {
+          "baseline": 0.462121,
+          "augmented": 0.560322,
+          "topic_mean": 0.4621212121212121,
+          "original": 0.953125,
+          "topics": {
+            "video_calls": 0.4621212121212121
+          }
+        },
+        "short-risk": {
+          "baseline": 0.968498,
+          "augmented": 0.971573,
+          "topic_mean": 0.9684979838709676,
+          "original": 0.9838709677419354,
+          "topics": {
+            "video_calls": 0.9684979838709676
+          }
+        },
+        "long-good": {
+          "baseline": 0.435714,
+          "augmented": 0.527983,
+          "topic_mean": 0.43571428571428567,
+          "original": 0.8970588235294117,
+          "topics": {
+            "video_calls": 0.43571428571428567
+          }
+        },
+        "long-risk": {
+          "baseline": 0.476562,
+          "augmented": 0.566098,
+          "topic_mean": 0.4765625,
+          "original": 0.9242424242424242,
+          "topics": {
+            "video_calls": 0.4765625
+          }
+        },
+        "amenity": {
+          "baseline": 0.969231,
+          "augmented": 0.94967,
+          "topic_mean": 0.9692307692307693,
+          "original": 0.8714285714285713,
+          "topics": {
+            "video_calls": 0.9692307692307693
+          }
+        },
+        "distractor": {
+          "baseline": 0.898808,
+          "augmented": 0.890878,
+          "topic_mean": 0.8988082340195017,
+          "original": 0.8591549295774648,
+          "topics": {
+            "video_calls": 0.8988082340195017
+          }
+        },
+        "night-cn": {
+          "baseline": 0.442029,
+          "augmented": 0.553623,
+          "topic_mean": 0.44202898550724634,
+          "original": 1.0,
+          "topics": {
+            "video_calls": 0.44202898550724634
+          }
+        },
+        "quiet": {
+          "baseline": 0.885732,
+          "augmented": 0.87803,
+          "topic_mean": 0.8857323232323232,
+          "original": 0.8472222222222221,
+          "topics": {
+            "video_calls": 0.8857323232323232
+          }
+        }
+      }
+    },
+    {
+      "id": "long",
+      "query": "我每次连续开四小时视频会议，希望网络稳定。",
+      "relevant": [
+        "long-good",
+        "long-risk",
+        "night-good",
+        "short-good"
+      ],
+      "risks": [
+        "long-risk"
+      ],
+      "metrics": {
+        "current_hybrid": {
+          "retrieved": [
+            "day-risk",
+            "day-good",
+            "amenity",
+            "short-risk",
+            "distractor"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "risk_recall_at_k": 0.0,
+          "reciprocal_rank": 0,
+          "missed_risks": [
+            "long-risk"
+          ]
+        },
+        "theme_vector": {
+          "retrieved": [
+            "day-risk",
+            "short-risk",
+            "day-good",
+            "long-risk",
+            "amenity"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.25,
+          "risk_recall_at_k": 1.0,
+          "reciprocal_rank": 0.25,
+          "missed_risks": []
+        },
+        "hybrid_plus_original": {
+          "retrieved": [
+            "day-risk",
+            "short-risk",
+            "day-good",
+            "amenity",
+            "distractor"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "risk_recall_at_k": 0.0,
+          "reciprocal_rank": 0,
+          "missed_risks": [
+            "long-risk"
+          ]
+        },
+        "original_only_diagnostic": {
+          "retrieved": [
+            "night-cn",
+            "day-risk",
+            "night-good",
+            "long-good",
+            "long-risk"
+          ],
+          "precision_at_k": 0.6,
+          "recall_at_k": 0.75,
+          "risk_recall_at_k": 1.0,
+          "reciprocal_rank": 0.3333333333333333,
+          "missed_risks": []
+        }
+      },
+      "new_relevant": [],
+      "displaced_relevant": [],
+      "displaced_risks": [],
+      "original_ranking": [
+        {
+          "source_id": "night-cn",
+          "distance": 0.4403772661379859
+        },
+        {
+          "source_id": "day-risk",
+          "distance": 0.4515188612940453
+        },
+        {
+          "source_id": "night-good",
+          "distance": 0.4634137798407998
+        },
+        {
+          "source_id": "long-good",
+          "distance": 0.4801865440838706
+        },
+        {
+          "source_id": "long-risk",
+          "distance": 0.4949431250236772
+        },
+        {
+          "source_id": "short-risk",
+          "distance": 0.5152342444063644
+        },
+        {
+          "source_id": "short-good",
+          "distance": 0.5368979014361999
+        },
+        {
+          "source_id": "night-risk",
+          "distance": 0.5425206611034872
+        },
+        {
+          "source_id": "day-good",
+          "distance": 0.5470121560847526
+        },
+        {
+          "source_id": "distractor",
+          "distance": 0.7306326947916717
+        },
+        {
+          "source_id": "amenity",
+          "distance": 0.7443647183576441
+        },
+        {
+          "source_id": "quiet",
+          "distance": 0.7727335364999983
+        }
+      ],
+      "scores": {
+        "day-good": {
+          "baseline": 0.976062,
+          "augmented": 0.957662,
+          "topic_mean": 0.9760624679979518,
+          "original": 0.8840579710144927,
+          "topics": {
+            "video_calls": 0.9760624679979518
+          }
+        },
+        "day-risk": {
+          "baseline": 0.984127,
+          "augmented": 0.984076,
+          "topic_mean": 0.9841269841269842,
+          "original": 0.9838709677419354,
+          "topics": {
+            "video_calls": 0.9841269841269842
+          }
+        },
+        "night-good": {
+          "baseline": 0.448529,
+          "augmented": 0.552474,
+          "topic_mean": 0.44852941176470584,
+          "original": 0.9682539682539681,
+          "topics": {
+            "video_calls": 0.44852941176470584
+          }
+        },
+        "night-risk": {
+          "baseline": 0.455224,
+          "augmented": 0.543591,
+          "topic_mean": 0.45522388059701485,
+          "original": 0.8970588235294117,
+          "topics": {
+            "video_calls": 0.4552238805970149
+          }
+        },
+        "short-good": {
+          "baseline": 0.462121,
+          "augmented": 0.551787,
+          "topic_mean": 0.4621212121212121,
+          "original": 0.9104477611940298,
+          "topics": {
+            "video_calls": 0.4621212121212121
+          }
+        },
+        "short-risk": {
+          "baseline": 0.968498,
+          "augmented": 0.959647,
+          "topic_mean": 0.9684979838709676,
+          "original": 0.9242424242424242,
+          "topics": {
+            "video_calls": 0.9684979838709676
+          }
+        },
+        "long-good": {
+          "baseline": 0.435714,
+          "augmented": 0.539196,
+          "topic_mean": 0.43571428571428567,
+          "original": 0.953125,
+          "topics": {
+            "video_calls": 0.43571428571428567
+          }
+        },
+        "long-risk": {
+          "baseline": 0.476562,
+          "augmented": 0.568942,
+          "topic_mean": 0.4765625,
+          "original": 0.9384615384615385,
+          "topics": {
+            "video_calls": 0.4765625
+          }
+        },
+        "amenity": {
+          "baseline": 0.969231,
+          "augmented": 0.947216,
+          "topic_mean": 0.9692307692307693,
+          "original": 0.8591549295774648,
+          "topics": {
+            "video_calls": 0.9692307692307693
+          }
+        },
+        "distractor": {
+          "baseline": 0.898808,
+          "augmented": 0.893332,
+          "topic_mean": 0.8988082340195017,
+          "original": 0.8714285714285713,
+          "topics": {
+            "video_calls": 0.8988082340195017
+          }
+        },
+        "night-cn": {
+          "baseline": 0.442029,
+          "augmented": 0.553623,
+          "topic_mean": 0.44202898550724634,
+          "original": 1.0,
+          "topics": {
+            "video_calls": 0.44202898550724634
+          }
+        },
+        "quiet": {
+          "baseline": 0.885732,
+          "augmented": 0.87803,
+          "topic_mean": 0.8857323232323232,
+          "original": 0.8472222222222221,
+          "topics": {
+            "video_calls": 0.8857323232323232
+          }
+        }
+      }
+    },
+    {
+      "id": "night-four-hours",
+      "query": "我每天凌晨连续开四小时跨国视频会议，希望网络稳定。",
+      "relevant": [
+        "night-good",
+        "night-risk",
+        "night-cn",
+        "long-good",
+        "long-risk"
+      ],
+      "risks": [
+        "night-risk",
+        "night-cn",
+        "long-risk"
+      ],
+      "metrics": {
+        "current_hybrid": {
+          "retrieved": [
+            "day-risk",
+            "day-good",
+            "amenity",
+            "short-risk",
+            "distractor"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "risk_recall_at_k": 0.0,
+          "reciprocal_rank": 0,
+          "missed_risks": [
+            "long-risk",
+            "night-cn",
+            "night-risk"
+          ]
+        },
+        "theme_vector": {
+          "retrieved": [
+            "day-risk",
+            "short-risk",
+            "day-good",
+            "long-risk",
+            "amenity"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.2,
+          "risk_recall_at_k": 0.3333333333333333,
+          "reciprocal_rank": 0.25,
+          "missed_risks": [
+            "night-cn",
+            "night-risk"
+          ]
+        },
+        "hybrid_plus_original": {
+          "retrieved": [
+            "day-risk",
+            "day-good",
+            "short-risk",
+            "amenity",
+            "distractor"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "risk_recall_at_k": 0.0,
+          "reciprocal_rank": 0,
+          "missed_risks": [
+            "long-risk",
+            "night-cn",
+            "night-risk"
+          ]
+        },
+        "original_only_diagnostic": {
+          "retrieved": [
+            "night-cn",
+            "night-good",
+            "day-risk",
+            "long-good",
+            "night-risk"
+          ],
+          "precision_at_k": 0.8,
+          "recall_at_k": 0.8,
+          "risk_recall_at_k": 0.6666666666666666,
+          "reciprocal_rank": 1.0,
+          "missed_risks": [
+            "long-risk"
+          ]
+        }
+      },
+      "new_relevant": [],
+      "displaced_relevant": [],
+      "displaced_risks": [],
+      "original_ranking": [
+        {
+          "source_id": "night-cn",
+          "distance": 0.4368071663891372
+        },
+        {
+          "source_id": "night-good",
+          "distance": 0.4402573567978718
+        },
+        {
+          "source_id": "day-risk",
+          "distance": 0.4659107789252357
+        },
+        {
+          "source_id": "long-good",
+          "distance": 0.4706884093517738
+        },
+        {
+          "source_id": "night-risk",
+          "distance": 0.5174736623438947
+        },
+        {
+          "source_id": "day-good",
+          "distance": 0.5477282557461702
+        },
+        {
+          "source_id": "short-risk",
+          "distance": 0.5489615423406249
+        },
+        {
+          "source_id": "long-risk",
+          "distance": 0.5609403840710346
+        },
+        {
+          "source_id": "short-good",
+          "distance": 0.5794173291314113
+        },
+        {
+          "source_id": "distractor",
+          "distance": 0.6555212503251548
+        },
+        {
+          "source_id": "quiet",
+          "distance": 0.7493493631918517
+        },
+        {
+          "source_id": "amenity",
+          "distance": 0.7590695232380152
+        }
+      ],
+      "scores": {
+        "day-good": {
+          "baseline": 0.976062,
+          "augmented": 0.965698,
+          "topic_mean": 0.9760624679979518,
+          "original": 0.9242424242424242,
+          "topics": {
+            "video_calls": 0.9760624679979518
+          }
+        },
+        "day-risk": {
+          "baseline": 0.984127,
+          "augmented": 0.980952,
+          "topic_mean": 0.9841269841269842,
+          "original": 0.9682539682539681,
+          "topics": {
+            "video_calls": 0.9841269841269842
+          }
+        },
+        "night-good": {
+          "baseline": 0.448529,
+          "augmented": 0.555598,
+          "topic_mean": 0.44852941176470584,
+          "original": 0.9838709677419354,
+          "topics": {
+            "video_calls": 0.44852941176470584
+          }
+        },
+        "night-risk": {
+          "baseline": 0.455224,
+          "augmented": 0.551871,
+          "topic_mean": 0.45522388059701485,
+          "original": 0.9384615384615385,
+          "topics": {
+            "video_calls": 0.4552238805970149
+          }
+        },
+        "short-good": {
+          "baseline": 0.462121,
+          "augmented": 0.546509,
+          "topic_mean": 0.4621212121212121,
+          "original": 0.8840579710144927,
+          "topics": {
+            "video_calls": 0.4621212121212121
+          }
+        },
+        "short-risk": {
+          "baseline": 0.968498,
+          "augmented": 0.956888,
+          "topic_mean": 0.9684979838709676,
+          "original": 0.9104477611940298,
+          "topics": {
+            "video_calls": 0.9684979838709676
+          }
+        },
+        "long-good": {
+          "baseline": 0.435714,
+          "augmented": 0.539196,
+          "topic_mean": 0.43571428571428567,
+          "original": 0.953125,
+          "topics": {
+            "video_calls": 0.43571428571428567
+          }
+        },
+        "long-risk": {
+          "baseline": 0.476562,
+          "augmented": 0.560662,
+          "topic_mean": 0.4765625,
+          "original": 0.8970588235294117,
+          "topics": {
+            "video_calls": 0.4765625
+          }
+        },
+        "amenity": {
+          "baseline": 0.969231,
+          "augmented": 0.944829,
+          "topic_mean": 0.9692307692307693,
+          "original": 0.8472222222222221,
+          "topics": {
+            "video_calls": 0.9692307692307693
+          }
+        },
+        "distractor": {
+          "baseline": 0.898808,
+          "augmented": 0.893332,
+          "topic_mean": 0.8988082340195017,
+          "original": 0.8714285714285713,
+          "topics": {
+            "video_calls": 0.8988082340195017
+          }
+        },
+        "night-cn": {
+          "baseline": 0.442029,
+          "augmented": 0.553623,
+          "topic_mean": 0.44202898550724634,
+          "original": 1.0,
+          "topics": {
+            "video_calls": 0.44202898550724634
+          }
+        },
+        "quiet": {
+          "baseline": 0.885732,
+          "augmented": 0.880417,
+          "topic_mean": 0.8857323232323232,
+          "original": 0.8591549295774648,
+          "topics": {
+            "video_calls": 0.8857323232323232
+          }
+        }
+      }
+    },
+    {
+      "id": "night-full",
+      "query": "我要至少两卧室，允许养猫，每月总费用不超过3500美元。我每天凌晨连续开四小时跨国视频会议，希望网络稳定。",
+      "relevant": [
+        "night-good",
+        "night-risk",
+        "night-cn",
+        "long-good",
+        "long-risk"
+      ],
+      "risks": [
+        "night-risk",
+        "night-cn",
+        "long-risk"
+      ],
+      "metrics": {
+        "current_hybrid": {
+          "retrieved": [
+            "day-risk",
+            "day-good",
+            "amenity",
+            "short-risk",
+            "distractor"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "risk_recall_at_k": 0.0,
+          "reciprocal_rank": 0,
+          "missed_risks": [
+            "long-risk",
+            "night-cn",
+            "night-risk"
+          ]
+        },
+        "theme_vector": {
+          "retrieved": [
+            "day-risk",
+            "short-risk",
+            "day-good",
+            "long-risk",
+            "amenity"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.2,
+          "risk_recall_at_k": 0.3333333333333333,
+          "reciprocal_rank": 0.25,
+          "missed_risks": [
+            "night-cn",
+            "night-risk"
+          ]
+        },
+        "hybrid_plus_original": {
+          "retrieved": [
+            "day-good",
+            "day-risk",
+            "short-risk",
+            "amenity",
+            "distractor"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "risk_recall_at_k": 0.0,
+          "reciprocal_rank": 0,
+          "missed_risks": [
+            "long-risk",
+            "night-cn",
+            "night-risk"
+          ]
+        },
+        "original_only_diagnostic": {
+          "retrieved": [
+            "night-cn",
+            "night-good",
+            "distractor",
+            "day-good",
+            "short-risk"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.4,
+          "risk_recall_at_k": 0.3333333333333333,
+          "reciprocal_rank": 1.0,
+          "missed_risks": [
+            "long-risk",
+            "night-risk"
+          ]
+        }
+      },
+      "new_relevant": [],
+      "displaced_relevant": [],
+      "displaced_risks": [],
+      "original_ranking": [
+        {
+          "source_id": "night-cn",
+          "distance": 0.505467863739623
+        },
+        {
+          "source_id": "night-good",
+          "distance": 0.5653048984232127
+        },
+        {
+          "source_id": "distractor",
+          "distance": 0.6191026867860272
+        },
+        {
+          "source_id": "day-good",
+          "distance": 0.6258037232503465
+        },
+        {
+          "source_id": "short-risk",
+          "distance": 0.6370826398280797
+        },
+        {
+          "source_id": "long-good",
+          "distance": 0.6421062948422691
+        },
+        {
+          "source_id": "night-risk",
+          "distance": 0.6559600952807154
+        },
+        {
+          "source_id": "day-risk",
+          "distance": 0.6579158091927702
+        },
+        {
+          "source_id": "short-good",
+          "distance": 0.672636755142733
+        },
+        {
+          "source_id": "long-risk",
+          "distance": 0.7215420125762972
+        },
+        {
+          "source_id": "amenity",
+          "distance": 0.7245085682777004
+        },
+        {
+          "source_id": "quiet",
+          "distance": 0.7480383990971424
+        }
+      ],
+      "scores": {
+        "day-good": {
+          "baseline": 0.976062,
+          "augmented": 0.971475,
+          "topic_mean": 0.9760624679979518,
+          "original": 0.953125,
+          "topics": {
+            "video_calls": 0.9760624679979518
+          }
+        },
+        "day-risk": {
+          "baseline": 0.984127,
+          "augmented": 0.966713,
+          "topic_mean": 0.9841269841269842,
+          "original": 0.8970588235294117,
+          "topics": {
+            "video_calls": 0.9841269841269842
+          }
+        },
+        "night-good": {
+          "baseline": 0.448529,
+          "augmented": 0.555598,
+          "topic_mean": 0.44852941176470584,
+          "original": 0.9838709677419354,
+          "topics": {
+            "video_calls": 0.44852941176470584
+          }
+        },
+        "night-risk": {
+          "baseline": 0.455224,
+          "augmented": 0.546269,
+          "topic_mean": 0.45522388059701485,
+          "original": 0.9104477611940298,
+          "topics": {
+            "video_calls": 0.4552238805970149
+          }
+        },
+        "short-good": {
+          "baseline": 0.462121,
+          "augmented": 0.546509,
+          "topic_mean": 0.4621212121212121,
+          "original": 0.8840579710144927,
+          "topics": {
+            "video_calls": 0.4621212121212121
+          }
+        },
+        "short-risk": {
+          "baseline": 0.968498,
+          "augmented": 0.962491,
+          "topic_mean": 0.9684979838709676,
+          "original": 0.9384615384615385,
+          "topics": {
+            "video_calls": 0.9684979838709676
+          }
+        },
+        "long-good": {
+          "baseline": 0.435714,
+          "augmented": 0.53342,
+          "topic_mean": 0.43571428571428567,
+          "original": 0.9242424242424242,
+          "topics": {
+            "video_calls": 0.43571428571428567
+          }
+        },
+        "long-risk": {
+          "baseline": 0.476562,
+          "augmented": 0.555536,
+          "topic_mean": 0.4765625,
+          "original": 0.8714285714285713,
+          "topics": {
+            "video_calls": 0.4765625
+          }
+        },
+        "amenity": {
+          "baseline": 0.969231,
+          "augmented": 0.947216,
+          "topic_mean": 0.9692307692307693,
+          "original": 0.8591549295774648,
+          "topics": {
+            "video_calls": 0.9692307692307693
+          }
+        },
+        "distractor": {
+          "baseline": 0.898808,
+          "augmented": 0.912697,
+          "topic_mean": 0.8988082340195017,
+          "original": 0.9682539682539681,
+          "topics": {
+            "video_calls": 0.8988082340195017
+          }
+        },
+        "night-cn": {
+          "baseline": 0.442029,
+          "augmented": 0.553623,
+          "topic_mean": 0.44202898550724634,
+          "original": 1.0,
+          "topics": {
+            "video_calls": 0.44202898550724634
+          }
+        },
+        "quiet": {
+          "baseline": 0.885732,
+          "augmented": 0.87803,
+          "topic_mean": 0.8857323232323232,
+          "original": 0.8472222222222221,
+          "topics": {
+            "video_calls": 0.8857323232323232
+          }
+        }
+      }
+    }
+  ],
+  "index_tokens": 266,
+  "summary": {
+    "current_hybrid": {
+      "precision_at_k": 0.10000000000000002,
+      "recall_at_k": 0.2222222222222222,
+      "risk_recall_at_k": 0.3333333333333333
+    },
+    "theme_vector": {
+      "precision_at_k": 0.23333333333333336,
+      "recall_at_k": 0.38611111111111107,
+      "risk_recall_at_k": 0.611111111111111
+    },
+    "hybrid_plus_original": {
+      "precision_at_k": 0.10000000000000002,
+      "recall_at_k": 0.2222222222222222,
+      "risk_recall_at_k": 0.3333333333333333
+    },
+    "original_only_diagnostic": {
+      "precision_at_k": 0.46666666666666673,
+      "recall_at_k": 0.6305555555555555,
+      "risk_recall_at_k": 0.75
+    }
+  },
+  "live_embedding_calls": 7,
+  "input_tokens": 435,
+  "peak_rss_mib": 51.09375,
+  "elapsed_seconds": 6.1162894170265645,
+  "production_counts_unchanged": true
+}

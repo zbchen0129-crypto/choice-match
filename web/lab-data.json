@@ -1,0 +1,3938 @@
+{
+  "scope": "Observed assistant-authored development set; offline sensitivity only, not held-out validation. No best weight selected or production default changed.",
+  "weights": [
+    0,
+    0.2,
+    0.5,
+    0.8,
+    1
+  ],
+  "baseline_weight": 0.2,
+  "fusion": "candidate_rank_rrf",
+  "coverage_first": true,
+  "live_calls": 0,
+  "documents": [
+    {
+      "id": "early-ok",
+      "candidate": "A",
+      "text": "During my stay in this apartment, I joined work calls before sunrise, around five in the morning. Audio and video stayed connected."
+    },
+    {
+      "id": "early-risk",
+      "candidate": "B",
+      "text": "The building gateway is rebooted before sunrise at five each morning. My work calls from the apartment lost their connection at that time."
+    },
+    {
+      "id": "evening-ok",
+      "candidate": "C",
+      "text": "I used this unit for online work meetings after dinner, between seven and nine in the evening, without disconnections."
+    },
+    {
+      "id": "evening-risk",
+      "candidate": "D",
+      "text": "In this apartment the internet became congested after dinner. My evening video calls froze repeatedly."
+    },
+    {
+      "id": "brief-ok",
+      "candidate": "E",
+      "text": "I tried several brief fifteen-minute video calls from this rental. They stayed connected, but I have no experience with longer sessions here."
+    },
+    {
+      "id": "brief-risk",
+      "candidate": "F",
+      "text": "The wireless connection in the rental dropped twice during a fifteen-minute call with my team."
+    },
+    {
+      "id": "extended-ok",
+      "candidate": "G",
+      "text": "I completed a continuous six-hour remote training session from the apartment with working audio and video throughout."
+    },
+    {
+      "id": "extended-risk",
+      "candidate": "H",
+      "text": "A session timeout on this property's connection disconnects my video meeting after three hours; short meetings finish normally."
+    },
+    {
+      "id": "weekend-ok",
+      "candidate": "I",
+      "text": "I stayed in the bedroom on Saturday and Sunday and heard no neighboring celebrations while sleeping."
+    },
+    {
+      "id": "weekend-risk",
+      "candidate": "J",
+      "text": "On Saturday and Sunday nights, celebrations next door kept me awake in this apartment. The noise continued past midnight."
+    },
+    {
+      "id": "weekday-ok",
+      "candidate": "K",
+      "text": "During my Monday-through-Thursday stay the apartment bedroom was quiet overnight. I was not there on the weekend."
+    },
+    {
+      "id": "weekday-risk",
+      "candidate": "L",
+      "text": "A neighboring loading dock woke me in this apartment before dawn every Monday through Thursday. I have no weekend observations."
+    },
+    {
+      "id": "wifi-ad",
+      "candidate": "M",
+      "text": "This apartment advertises internet, Wi-Fi and a desk. The advertisement gives no call reliability, duration or time-of-day observations."
+    },
+    {
+      "id": "conference-ad",
+      "candidate": "N",
+      "text": "The apartment is near a conference center whose evening program includes quiet study hours. This is not information about the rental's network or sound insulation."
+    },
+    {
+      "id": "generic-risk",
+      "candidate": "O",
+      "text": "My internet connection in this apartment was unreliable during video meetings. I did not record the time or the length of the calls."
+    },
+    {
+      "id": "early-weekday",
+      "candidate": "P",
+      "text": "On a weekday before sunrise, traffic noise in this bedroom disrupted my video meeting even though the connection stayed up."
+    },
+    {
+      "id": "evening-weekend",
+      "candidate": "Q",
+      "text": "After dinner on Saturday, loud music from the next unit interrupted my work call in this apartment; the network itself remained connected."
+    },
+    {
+      "id": "generic-quiet",
+      "candidate": "R",
+      "text": "The landlord describes the apartment as quiet. No resident observations or time-specific details are supplied."
+    }
+  ],
+  "cases": [
+    {
+      "id": "before-sunrise",
+      "query": "I need a rental for reliable video meetings before sunrise at five in the morning.",
+      "preferences": {
+        "video_calls": 3
+      },
+      "relevant": [
+        "early-ok",
+        "early-risk",
+        "early-weekday"
+      ],
+      "risks": [
+        "early-risk"
+      ],
+      "general_topic_risks": [
+        "brief-risk",
+        "early-risk",
+        "evening-risk",
+        "extended-risk",
+        "generic-risk"
+      ],
+      "signals": {
+        "early-ok": {
+          "topic": 0.8840579710144928,
+          "original": 1.0,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "early-risk": {
+          "topic": 0.8356164383561644,
+          "original": 0.9384615384615385,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-ok": {
+          "topic": 0.9104477611940298,
+          "original": 0.9242424242424242,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-risk": {
+          "topic": 0.9838709677419355,
+          "original": 0.8356164383561644,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "brief-ok": {
+          "topic": 0.8714285714285714,
+          "original": 0.9682539682539683,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "brief-risk": {
+          "topic": 0.9242424242424242,
+          "original": 0.8970588235294118,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "extended-ok": {
+          "topic": 0.8591549295774648,
+          "original": 0.9104477611940298,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "extended-risk": {
+          "topic": 0.8472222222222222,
+          "original": 0.8714285714285714,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekend-ok": {
+          "topic": 0.782051282051282,
+          "original": 0.782051282051282,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekend-risk": {
+          "topic": 0.7922077922077922,
+          "original": 0.8026315789473685,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekday-ok": {
+          "topic": 0.8243243243243243,
+          "original": 0.8243243243243243,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekday-risk": {
+          "topic": 0.8026315789473685,
+          "original": 0.8840579710144928,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "wifi-ad": {
+          "topic": 0.9682539682539683,
+          "original": 0.8472222222222222,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "conference-ad": {
+          "topic": 0.953125,
+          "original": 0.8591549295774648,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "generic-risk": {
+          "topic": 1.0,
+          "original": 0.953125,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "early-weekday": {
+          "topic": 0.8970588235294118,
+          "original": 0.9838709677419355,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-weekend": {
+          "topic": 0.9384615384615385,
+          "original": 0.8133333333333334,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "generic-quiet": {
+          "topic": 0.8133333333333334,
+          "original": 0.7922077922077922,
+          "coverage": [
+            "video_calls"
+          ]
+        }
+      },
+      "variants": {
+        "0": {
+          "selected": [
+            "generic-risk",
+            "evening-risk",
+            "wifi-ad",
+            "conference-ad",
+            "evening-weekend"
+          ],
+          "scores": {
+            "early-ok": 0.8840579710144928,
+            "early-risk": 0.8356164383561644,
+            "evening-ok": 0.9104477611940298,
+            "evening-risk": 0.9838709677419355,
+            "brief-ok": 0.8714285714285714,
+            "brief-risk": 0.9242424242424242,
+            "extended-ok": 0.8591549295774648,
+            "extended-risk": 0.8472222222222222,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077922,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8026315789473685,
+            "wifi-ad": 0.9682539682539683,
+            "conference-ad": 0.953125,
+            "generic-risk": 1.0,
+            "early-weekday": 0.8970588235294118,
+            "evening-weekend": 0.9384615384615385,
+            "generic-quiet": 0.8133333333333334
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "evening-risk",
+              "wifi-ad",
+              "conference-ad",
+              "evening-weekend"
+            ],
+            "precision_at_k": 0.0,
+            "recall_at_k": 0.0,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 0,
+            "missed_risks": [
+              "early-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "evening-weekend"
+          ],
+          "exited": [
+            "brief-risk"
+          ],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "brief-risk"
+          ]
+        },
+        "0.2": {
+          "selected": [
+            "generic-risk",
+            "evening-risk",
+            "wifi-ad",
+            "conference-ad",
+            "brief-risk"
+          ],
+          "scores": {
+            "early-ok": 0.9072463768115944,
+            "early-risk": 0.8561854583772393,
+            "evening-ok": 0.9132066938037087,
+            "evening-risk": 0.9542200618647813,
+            "brief-ok": 0.8907936507936508,
+            "brief-risk": 0.9188057040998218,
+            "extended-ok": 0.8694134959007778,
+            "extended-risk": 0.8520634920634921,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7942925495557076,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8189168573607934,
+            "wifi-ad": 0.944047619047619,
+            "conference-ad": 0.934330985915493,
+            "generic-risk": 0.9906250000000001,
+            "early-weekday": 0.9144212523719166,
+            "evening-weekend": 0.9134358974358976,
+            "generic-quiet": 0.8091082251082252
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "evening-risk",
+              "wifi-ad",
+              "conference-ad",
+              "brief-risk"
+            ],
+            "precision_at_k": 0.0,
+            "recall_at_k": 0.0,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 0,
+            "missed_risks": [
+              "early-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.6
+          },
+          "entered": [],
+          "exited": [],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.5": {
+          "selected": [
+            "generic-risk",
+            "early-ok",
+            "early-weekday",
+            "brief-ok",
+            "evening-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9420289855072463,
+            "early-risk": 0.8870389884088514,
+            "evening-ok": 0.917345092718227,
+            "evening-risk": 0.90974370304905,
+            "brief-ok": 0.9198412698412699,
+            "brief-risk": 0.910650623885918,
+            "extended-ok": 0.8848013453857473,
+            "extended-risk": 0.8593253968253969,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7974196855775804,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8433447749809306,
+            "wifi-ad": 0.9077380952380952,
+            "conference-ad": 0.9061399647887324,
+            "generic-risk": 0.9765625,
+            "early-weekday": 0.9404648956356736,
+            "evening-weekend": 0.8758974358974358,
+            "generic-quiet": 0.8027705627705628
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "early-ok",
+              "early-weekday",
+              "brief-ok",
+              "evening-ok"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [
+              "early-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.2
+          },
+          "entered": [
+            "brief-ok",
+            "early-ok",
+            "early-weekday",
+            "evening-ok"
+          ],
+          "exited": [
+            "brief-risk",
+            "conference-ad",
+            "evening-risk",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "early-ok",
+            "early-weekday"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "brief-risk",
+            "evening-risk"
+          ]
+        },
+        "0.8": {
+          "selected": [
+            "early-ok",
+            "early-weekday",
+            "generic-risk",
+            "brief-ok",
+            "evening-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9768115942028985,
+            "early-risk": 0.9178925184404637,
+            "evening-ok": 0.9214834916327453,
+            "evening-risk": 0.8652673442333185,
+            "brief-ok": 0.9488888888888889,
+            "brief-risk": 0.9024955436720143,
+            "extended-ok": 0.9001891948707168,
+            "extended-risk": 0.8665873015873016,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.8005468215994532,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8677726926010679,
+            "wifi-ad": 0.8714285714285714,
+            "conference-ad": 0.8779489436619717,
+            "generic-risk": 0.9625,
+            "early-weekday": 0.9665085388994308,
+            "evening-weekend": 0.8383589743589743,
+            "generic-quiet": 0.7964329004329005
+          },
+          "metrics": {
+            "retrieved": [
+              "early-ok",
+              "early-weekday",
+              "generic-risk",
+              "brief-ok",
+              "evening-ok"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [
+              "early-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.2
+          },
+          "entered": [
+            "brief-ok",
+            "early-ok",
+            "early-weekday",
+            "evening-ok"
+          ],
+          "exited": [
+            "brief-risk",
+            "conference-ad",
+            "evening-risk",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "early-ok",
+            "early-weekday"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "brief-risk",
+            "evening-risk"
+          ]
+        },
+        "1": {
+          "selected": [
+            "early-ok",
+            "early-weekday",
+            "brief-ok",
+            "generic-risk",
+            "early-risk"
+          ],
+          "scores": {
+            "early-ok": 1.0,
+            "early-risk": 0.9384615384615385,
+            "evening-ok": 0.9242424242424242,
+            "evening-risk": 0.8356164383561644,
+            "brief-ok": 0.9682539682539683,
+            "brief-risk": 0.8970588235294118,
+            "extended-ok": 0.9104477611940298,
+            "extended-risk": 0.8714285714285714,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.8026315789473685,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8840579710144928,
+            "wifi-ad": 0.8472222222222222,
+            "conference-ad": 0.8591549295774648,
+            "generic-risk": 0.953125,
+            "early-weekday": 0.9838709677419355,
+            "evening-weekend": 0.8133333333333334,
+            "generic-quiet": 0.7922077922077922
+          },
+          "metrics": {
+            "retrieved": [
+              "early-ok",
+              "early-weekday",
+              "brief-ok",
+              "generic-risk",
+              "early-risk"
+            ],
+            "precision_at_k": 0.6,
+            "recall_at_k": 1.0,
+            "risk_recall_at_k": 1.0,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "brief-ok",
+            "early-ok",
+            "early-risk",
+            "early-weekday"
+          ],
+          "exited": [
+            "brief-risk",
+            "conference-ad",
+            "evening-risk",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "early-ok",
+            "early-risk",
+            "early-weekday"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [
+            "early-risk"
+          ],
+          "displaced_risks": [
+            "brief-risk",
+            "evening-risk"
+          ]
+        }
+      },
+      "theme_vector": {
+        "retrieved": [
+          "generic-risk",
+          "brief-risk",
+          "evening-risk",
+          "evening-ok",
+          "wifi-ad"
+        ],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "risk_recall_at_k": 0.0,
+        "reciprocal_rank": 0,
+        "missed_risks": [
+          "early-risk"
+        ],
+        "general_topic_risk_recall_at_5": 0.6
+      }
+    },
+    {
+      "id": "after-dinner",
+      "query": "I need a rental for reliable video meetings after dinner between seven and nine in the evening.",
+      "preferences": {
+        "video_calls": 3
+      },
+      "relevant": [
+        "evening-ok",
+        "evening-risk",
+        "evening-weekend"
+      ],
+      "risks": [
+        "evening-risk"
+      ],
+      "general_topic_risks": [
+        "brief-risk",
+        "early-risk",
+        "evening-risk",
+        "extended-risk",
+        "generic-risk"
+      ],
+      "signals": {
+        "early-ok": {
+          "topic": 0.8840579710144928,
+          "original": 0.9384615384615385,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "early-risk": {
+          "topic": 0.8356164383561644,
+          "original": 0.8243243243243243,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-ok": {
+          "topic": 0.9104477611940298,
+          "original": 1.0,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-risk": {
+          "topic": 0.9838709677419355,
+          "original": 0.953125,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "brief-ok": {
+          "topic": 0.8714285714285714,
+          "original": 0.9838709677419355,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "brief-risk": {
+          "topic": 0.9242424242424242,
+          "original": 0.8714285714285714,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "extended-ok": {
+          "topic": 0.8591549295774648,
+          "original": 0.8840579710144928,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "extended-risk": {
+          "topic": 0.8472222222222222,
+          "original": 0.8970588235294118,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekend-ok": {
+          "topic": 0.782051282051282,
+          "original": 0.782051282051282,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekend-risk": {
+          "topic": 0.7922077922077922,
+          "original": 0.8133333333333334,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekday-ok": {
+          "topic": 0.8243243243243243,
+          "original": 0.8472222222222222,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekday-risk": {
+          "topic": 0.8026315789473685,
+          "original": 0.8026315789473685,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "wifi-ad": {
+          "topic": 0.9682539682539683,
+          "original": 0.8356164383561644,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "conference-ad": {
+          "topic": 0.953125,
+          "original": 0.9242424242424242,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "generic-risk": {
+          "topic": 1.0,
+          "original": 0.9682539682539683,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "early-weekday": {
+          "topic": 0.8970588235294118,
+          "original": 0.9104477611940298,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-weekend": {
+          "topic": 0.9384615384615385,
+          "original": 0.8591549295774648,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "generic-quiet": {
+          "topic": 0.8133333333333334,
+          "original": 0.7922077922077922,
+          "coverage": [
+            "video_calls"
+          ]
+        }
+      },
+      "variants": {
+        "0": {
+          "selected": [
+            "generic-risk",
+            "evening-risk",
+            "wifi-ad",
+            "conference-ad",
+            "evening-weekend"
+          ],
+          "scores": {
+            "early-ok": 0.8840579710144928,
+            "early-risk": 0.8356164383561644,
+            "evening-ok": 0.9104477611940298,
+            "evening-risk": 0.9838709677419355,
+            "brief-ok": 0.8714285714285714,
+            "brief-risk": 0.9242424242424242,
+            "extended-ok": 0.8591549295774648,
+            "extended-risk": 0.8472222222222222,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077922,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8026315789473685,
+            "wifi-ad": 0.9682539682539683,
+            "conference-ad": 0.953125,
+            "generic-risk": 1.0,
+            "early-weekday": 0.8970588235294118,
+            "evening-weekend": 0.9384615384615385,
+            "generic-quiet": 0.8133333333333334
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "evening-risk",
+              "wifi-ad",
+              "conference-ad",
+              "evening-weekend"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 1.0,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "evening-weekend"
+          ],
+          "exited": [
+            "evening-ok"
+          ],
+          "new_relevant": [
+            "evening-weekend"
+          ],
+          "displaced_relevant": [
+            "evening-ok"
+          ],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.2": {
+          "selected": [
+            "generic-risk",
+            "evening-risk",
+            "conference-ad",
+            "wifi-ad",
+            "evening-ok"
+          ],
+          "scores": {
+            "early-ok": 0.894938684503902,
+            "early-risk": 0.8333580155497964,
+            "evening-ok": 0.9283582089552238,
+            "evening-risk": 0.9777217741935484,
+            "brief-ok": 0.8939170506912443,
+            "brief-risk": 0.9136796536796536,
+            "extended-ok": 0.8641355378648704,
+            "extended-risk": 0.8571895424836602,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7964329004329005,
+            "weekday-ok": 0.8289039039039039,
+            "weekday-risk": 0.8026315789473686,
+            "wifi-ad": 0.9417264622744075,
+            "conference-ad": 0.9473484848484849,
+            "generic-risk": 0.9936507936507937,
+            "early-weekday": 0.8997366110623355,
+            "evening-weekend": 0.9226002166847238,
+            "generic-quiet": 0.8091082251082252
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "evening-risk",
+              "conference-ad",
+              "wifi-ad",
+              "evening-ok"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 1.0,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [],
+          "exited": [],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.5": {
+          "selected": [
+            "generic-risk",
+            "evening-risk",
+            "evening-ok",
+            "conference-ad",
+            "brief-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9112597547380157,
+            "early-risk": 0.8299703813402444,
+            "evening-ok": 0.9552238805970149,
+            "evening-risk": 0.9684979838709677,
+            "brief-ok": 0.9276497695852535,
+            "brief-risk": 0.8978354978354979,
+            "extended-ok": 0.8716064502959788,
+            "extended-risk": 0.872140522875817,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.8027705627705628,
+            "weekday-ok": 0.8357732732732732,
+            "weekday-risk": 0.8026315789473685,
+            "wifi-ad": 0.9019352033050663,
+            "conference-ad": 0.9386837121212122,
+            "generic-risk": 0.9841269841269842,
+            "early-weekday": 0.9037532923617209,
+            "evening-weekend": 0.8988082340195016,
+            "generic-quiet": 0.8027705627705628
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "evening-risk",
+              "evening-ok",
+              "conference-ad",
+              "brief-ok"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 1.0,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "brief-ok"
+          ],
+          "exited": [
+            "wifi-ad"
+          ],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.8": {
+          "selected": [
+            "evening-ok",
+            "generic-risk",
+            "brief-ok",
+            "evening-risk",
+            "conference-ad"
+          ],
+          "scores": {
+            "early-ok": 0.9275808249721293,
+            "early-risk": 0.8265827471306924,
+            "evening-ok": 0.982089552238806,
+            "evening-risk": 0.959274193548387,
+            "brief-ok": 0.9613824884792627,
+            "brief-risk": 0.881991341991342,
+            "extended-ok": 0.8790773627270873,
+            "extended-risk": 0.8870915032679739,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.8091082251082251,
+            "weekday-ok": 0.8426426426426427,
+            "weekday-risk": 0.8026315789473685,
+            "wifi-ad": 0.8621439443357252,
+            "conference-ad": 0.9300189393939393,
+            "generic-risk": 0.9746031746031746,
+            "early-weekday": 0.9077699736611062,
+            "evening-weekend": 0.8750162513542794,
+            "generic-quiet": 0.7964329004329005
+          },
+          "metrics": {
+            "retrieved": [
+              "evening-ok",
+              "generic-risk",
+              "brief-ok",
+              "evening-risk",
+              "conference-ad"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 1.0,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "brief-ok"
+          ],
+          "exited": [
+            "wifi-ad"
+          ],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "1": {
+          "selected": [
+            "evening-ok",
+            "brief-ok",
+            "generic-risk",
+            "evening-risk",
+            "early-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9384615384615385,
+            "early-risk": 0.8243243243243243,
+            "evening-ok": 1.0,
+            "evening-risk": 0.953125,
+            "brief-ok": 0.9838709677419355,
+            "brief-risk": 0.8714285714285714,
+            "extended-ok": 0.8840579710144928,
+            "extended-risk": 0.8970588235294118,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.8133333333333334,
+            "weekday-ok": 0.8472222222222222,
+            "weekday-risk": 0.8026315789473685,
+            "wifi-ad": 0.8356164383561644,
+            "conference-ad": 0.9242424242424242,
+            "generic-risk": 0.9682539682539683,
+            "early-weekday": 0.9104477611940298,
+            "evening-weekend": 0.8591549295774648,
+            "generic-quiet": 0.7922077922077922
+          },
+          "metrics": {
+            "retrieved": [
+              "evening-ok",
+              "brief-ok",
+              "generic-risk",
+              "evening-risk",
+              "early-ok"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 1.0,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "brief-ok",
+            "early-ok"
+          ],
+          "exited": [
+            "conference-ad",
+            "wifi-ad"
+          ],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        }
+      },
+      "theme_vector": {
+        "retrieved": [
+          "generic-risk",
+          "brief-risk",
+          "evening-risk",
+          "evening-ok",
+          "wifi-ad"
+        ],
+        "precision_at_k": 0.4,
+        "recall_at_k": 0.6666666666666666,
+        "risk_recall_at_k": 1.0,
+        "reciprocal_rank": 0.3333333333333333,
+        "missed_risks": [],
+        "general_topic_risk_recall_at_5": 0.6
+      }
+    },
+    {
+      "id": "fifteen-minutes",
+      "query": "My remote team check-ins last fifteen minutes. I need a reliable video connection in the rental.",
+      "preferences": {
+        "video_calls": 3
+      },
+      "relevant": [
+        "brief-ok",
+        "brief-risk",
+        "extended-risk"
+      ],
+      "risks": [
+        "brief-risk"
+      ],
+      "general_topic_risks": [
+        "brief-risk",
+        "early-risk",
+        "evening-risk",
+        "extended-risk",
+        "generic-risk"
+      ],
+      "signals": {
+        "early-ok": {
+          "topic": 0.8840579710144928,
+          "original": 0.9384615384615385,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "early-risk": {
+          "topic": 0.8356164383561644,
+          "original": 0.8714285714285714,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-ok": {
+          "topic": 0.9104477611940298,
+          "original": 0.9242424242424242,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-risk": {
+          "topic": 0.9838709677419355,
+          "original": 0.8840579710144928,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "brief-ok": {
+          "topic": 0.8714285714285714,
+          "original": 0.9838709677419355,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "brief-risk": {
+          "topic": 0.9242424242424242,
+          "original": 1.0,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "extended-ok": {
+          "topic": 0.8591549295774648,
+          "original": 0.953125,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "extended-risk": {
+          "topic": 0.8472222222222222,
+          "original": 0.9104477611940298,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekend-ok": {
+          "topic": 0.782051282051282,
+          "original": 0.782051282051282,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekend-risk": {
+          "topic": 0.7922077922077922,
+          "original": 0.7922077922077922,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekday-ok": {
+          "topic": 0.8243243243243243,
+          "original": 0.8133333333333334,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekday-risk": {
+          "topic": 0.8026315789473685,
+          "original": 0.8243243243243243,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "wifi-ad": {
+          "topic": 0.9682539682539683,
+          "original": 0.8591549295774648,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "conference-ad": {
+          "topic": 0.953125,
+          "original": 0.8356164383561644,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "generic-risk": {
+          "topic": 1.0,
+          "original": 0.9682539682539683,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "early-weekday": {
+          "topic": 0.8970588235294118,
+          "original": 0.8970588235294118,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-weekend": {
+          "topic": 0.9384615384615385,
+          "original": 0.8472222222222222,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "generic-quiet": {
+          "topic": 0.8133333333333334,
+          "original": 0.8026315789473685,
+          "coverage": [
+            "video_calls"
+          ]
+        }
+      },
+      "variants": {
+        "0": {
+          "selected": [
+            "generic-risk",
+            "evening-risk",
+            "wifi-ad",
+            "conference-ad",
+            "evening-weekend"
+          ],
+          "scores": {
+            "early-ok": 0.8840579710144928,
+            "early-risk": 0.8356164383561644,
+            "evening-ok": 0.9104477611940298,
+            "evening-risk": 0.9838709677419355,
+            "brief-ok": 0.8714285714285714,
+            "brief-risk": 0.9242424242424242,
+            "extended-ok": 0.8591549295774648,
+            "extended-risk": 0.8472222222222222,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077922,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8026315789473685,
+            "wifi-ad": 0.9682539682539683,
+            "conference-ad": 0.953125,
+            "generic-risk": 1.0,
+            "early-weekday": 0.8970588235294118,
+            "evening-weekend": 0.9384615384615385,
+            "generic-quiet": 0.8133333333333334
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "evening-risk",
+              "wifi-ad",
+              "conference-ad",
+              "evening-weekend"
+            ],
+            "precision_at_k": 0.0,
+            "recall_at_k": 0.0,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 0,
+            "missed_risks": [
+              "brief-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "evening-weekend"
+          ],
+          "exited": [
+            "brief-risk"
+          ],
+          "new_relevant": [],
+          "displaced_relevant": [
+            "brief-risk"
+          ],
+          "new_risks": [],
+          "displaced_risks": [
+            "brief-risk"
+          ]
+        },
+        "0.2": {
+          "selected": [
+            "generic-risk",
+            "evening-risk",
+            "wifi-ad",
+            "brief-risk",
+            "conference-ad"
+          ],
+          "scores": {
+            "early-ok": 0.894938684503902,
+            "early-risk": 0.8427788649706458,
+            "evening-ok": 0.9132066938037087,
+            "evening-risk": 0.963908368396447,
+            "brief-ok": 0.8939170506912443,
+            "brief-risk": 0.9393939393939394,
+            "extended-ok": 0.8779489436619718,
+            "extended-risk": 0.8598673300165838,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077924,
+            "weekday-ok": 0.8221261261261261,
+            "weekday-risk": 0.8069701280227597,
+            "wifi-ad": 0.9464341605186676,
+            "conference-ad": 0.9296232876712329,
+            "generic-risk": 0.9936507936507937,
+            "early-weekday": 0.8970588235294119,
+            "evening-weekend": 0.9202136752136754,
+            "generic-quiet": 0.8111929824561405
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "evening-risk",
+              "wifi-ad",
+              "brief-risk",
+              "conference-ad"
+            ],
+            "precision_at_k": 0.2,
+            "recall_at_k": 0.3333333333333333,
+            "risk_recall_at_k": 1.0,
+            "reciprocal_rank": 0.25,
+            "missed_risks": [],
+            "general_topic_risk_recall_at_5": 0.6
+          },
+          "entered": [],
+          "exited": [],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.5": {
+          "selected": [
+            "generic-risk",
+            "brief-risk",
+            "evening-risk",
+            "brief-ok",
+            "evening-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9112597547380157,
+            "early-risk": 0.8535225048923679,
+            "evening-ok": 0.917345092718227,
+            "evening-risk": 0.9339644693782141,
+            "brief-ok": 0.9276497695852535,
+            "brief-risk": 0.9621212121212122,
+            "extended-ok": 0.9061399647887324,
+            "extended-risk": 0.878834991708126,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077922,
+            "weekday-ok": 0.8188288288288288,
+            "weekday-risk": 0.8134779516358464,
+            "wifi-ad": 0.9137044489157164,
+            "conference-ad": 0.8943707191780822,
+            "generic-risk": 0.9841269841269842,
+            "early-weekday": 0.8970588235294118,
+            "evening-weekend": 0.8928418803418803,
+            "generic-quiet": 0.8079824561403509
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "brief-risk",
+              "evening-risk",
+              "brief-ok",
+              "evening-ok"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 1.0,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [],
+            "general_topic_risk_recall_at_5": 0.6
+          },
+          "entered": [
+            "brief-ok",
+            "evening-ok"
+          ],
+          "exited": [
+            "conference-ad",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "brief-ok"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.8": {
+          "selected": [
+            "brief-risk",
+            "generic-risk",
+            "brief-ok",
+            "extended-ok",
+            "early-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9275808249721293,
+            "early-risk": 0.86426614481409,
+            "evening-ok": 0.9214834916327453,
+            "evening-risk": 0.9040205703599813,
+            "brief-ok": 0.9613824884792627,
+            "brief-risk": 0.9848484848484849,
+            "extended-ok": 0.934330985915493,
+            "extended-risk": 0.8978026533996682,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077922,
+            "weekday-ok": 0.8155315315315316,
+            "weekday-risk": 0.8199857752489331,
+            "wifi-ad": 0.8809747373127654,
+            "conference-ad": 0.8591181506849315,
+            "generic-risk": 0.9746031746031746,
+            "early-weekday": 0.8970588235294119,
+            "evening-weekend": 0.8654700854700854,
+            "generic-quiet": 0.8047719298245615
+          },
+          "metrics": {
+            "retrieved": [
+              "brief-risk",
+              "generic-risk",
+              "brief-ok",
+              "extended-ok",
+              "early-ok"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 1.0,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "brief-ok",
+            "early-ok",
+            "extended-ok"
+          ],
+          "exited": [
+            "conference-ad",
+            "evening-risk",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "brief-ok"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "evening-risk"
+          ]
+        },
+        "1": {
+          "selected": [
+            "brief-risk",
+            "brief-ok",
+            "generic-risk",
+            "extended-ok",
+            "early-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9384615384615385,
+            "early-risk": 0.8714285714285714,
+            "evening-ok": 0.9242424242424242,
+            "evening-risk": 0.8840579710144928,
+            "brief-ok": 0.9838709677419355,
+            "brief-risk": 1.0,
+            "extended-ok": 0.953125,
+            "extended-risk": 0.9104477611940298,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077922,
+            "weekday-ok": 0.8133333333333334,
+            "weekday-risk": 0.8243243243243243,
+            "wifi-ad": 0.8591549295774648,
+            "conference-ad": 0.8356164383561644,
+            "generic-risk": 0.9682539682539683,
+            "early-weekday": 0.8970588235294118,
+            "evening-weekend": 0.8472222222222222,
+            "generic-quiet": 0.8026315789473685
+          },
+          "metrics": {
+            "retrieved": [
+              "brief-risk",
+              "brief-ok",
+              "generic-risk",
+              "extended-ok",
+              "early-ok"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 1.0,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "brief-ok",
+            "early-ok",
+            "extended-ok"
+          ],
+          "exited": [
+            "conference-ad",
+            "evening-risk",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "brief-ok"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "evening-risk"
+          ]
+        }
+      },
+      "theme_vector": {
+        "retrieved": [
+          "generic-risk",
+          "brief-risk",
+          "evening-risk",
+          "evening-ok",
+          "wifi-ad"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.3333333333333333,
+        "risk_recall_at_k": 1.0,
+        "reciprocal_rank": 0.5,
+        "missed_risks": [],
+        "general_topic_risk_recall_at_5": 0.6
+      }
+    },
+    {
+      "id": "six-hours",
+      "query": "I attend uninterrupted six-hour remote training sessions and need the rental connection to keep audio and video working.",
+      "preferences": {
+        "video_calls": 3
+      },
+      "relevant": [
+        "extended-ok",
+        "extended-risk",
+        "brief-ok"
+      ],
+      "risks": [
+        "extended-risk"
+      ],
+      "general_topic_risks": [
+        "brief-risk",
+        "early-risk",
+        "evening-risk",
+        "extended-risk",
+        "generic-risk"
+      ],
+      "signals": {
+        "early-ok": {
+          "topic": 0.8840579710144928,
+          "original": 0.9384615384615385,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "early-risk": {
+          "topic": 0.8356164383561644,
+          "original": 0.8472222222222222,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-ok": {
+          "topic": 0.9104477611940298,
+          "original": 0.953125,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-risk": {
+          "topic": 0.9838709677419355,
+          "original": 0.8714285714285714,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "brief-ok": {
+          "topic": 0.8714285714285714,
+          "original": 0.9242424242424242,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "brief-risk": {
+          "topic": 0.9242424242424242,
+          "original": 0.9682539682539683,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "extended-ok": {
+          "topic": 0.8591549295774648,
+          "original": 1.0,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "extended-risk": {
+          "topic": 0.8472222222222222,
+          "original": 0.9104477611940298,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekend-ok": {
+          "topic": 0.782051282051282,
+          "original": 0.782051282051282,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekend-risk": {
+          "topic": 0.7922077922077922,
+          "original": 0.7922077922077922,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekday-ok": {
+          "topic": 0.8243243243243243,
+          "original": 0.8243243243243243,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "weekday-risk": {
+          "topic": 0.8026315789473685,
+          "original": 0.8133333333333334,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "wifi-ad": {
+          "topic": 0.9682539682539683,
+          "original": 0.8356164383561644,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "conference-ad": {
+          "topic": 0.953125,
+          "original": 0.8591549295774648,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "generic-risk": {
+          "topic": 1.0,
+          "original": 0.9838709677419355,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "early-weekday": {
+          "topic": 0.8970588235294118,
+          "original": 0.8970588235294118,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "evening-weekend": {
+          "topic": 0.9384615384615385,
+          "original": 0.8840579710144928,
+          "coverage": [
+            "video_calls"
+          ]
+        },
+        "generic-quiet": {
+          "topic": 0.8133333333333334,
+          "original": 0.8026315789473685,
+          "coverage": [
+            "video_calls"
+          ]
+        }
+      },
+      "variants": {
+        "0": {
+          "selected": [
+            "generic-risk",
+            "evening-risk",
+            "wifi-ad",
+            "conference-ad",
+            "evening-weekend"
+          ],
+          "scores": {
+            "early-ok": 0.8840579710144928,
+            "early-risk": 0.8356164383561644,
+            "evening-ok": 0.9104477611940298,
+            "evening-risk": 0.9838709677419355,
+            "brief-ok": 0.8714285714285714,
+            "brief-risk": 0.9242424242424242,
+            "extended-ok": 0.8591549295774648,
+            "extended-risk": 0.8472222222222222,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077922,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8026315789473685,
+            "wifi-ad": 0.9682539682539683,
+            "conference-ad": 0.953125,
+            "generic-risk": 1.0,
+            "early-weekday": 0.8970588235294118,
+            "evening-weekend": 0.9384615384615385,
+            "generic-quiet": 0.8133333333333334
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "evening-risk",
+              "wifi-ad",
+              "conference-ad",
+              "evening-weekend"
+            ],
+            "precision_at_k": 0.0,
+            "recall_at_k": 0.0,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 0,
+            "missed_risks": [
+              "extended-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "evening-weekend"
+          ],
+          "exited": [
+            "brief-risk"
+          ],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "brief-risk"
+          ]
+        },
+        "0.2": {
+          "selected": [
+            "generic-risk",
+            "evening-risk",
+            "wifi-ad",
+            "conference-ad",
+            "brief-risk"
+          ],
+          "scores": {
+            "early-ok": 0.894938684503902,
+            "early-risk": 0.8379375951293759,
+            "evening-ok": 0.9189832089552239,
+            "evening-risk": 0.9613824884792627,
+            "brief-ok": 0.881991341991342,
+            "brief-risk": 0.933044733044733,
+            "extended-ok": 0.8873239436619718,
+            "extended-risk": 0.8598673300165838,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077924,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8047719298245615,
+            "wifi-ad": 0.9417264622744075,
+            "conference-ad": 0.934330985915493,
+            "generic-risk": 0.9967741935483871,
+            "early-weekday": 0.8970588235294119,
+            "evening-weekend": 0.9275808249721295,
+            "generic-quiet": 0.8111929824561405
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "evening-risk",
+              "wifi-ad",
+              "conference-ad",
+              "brief-risk"
+            ],
+            "precision_at_k": 0.0,
+            "recall_at_k": 0.0,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 0,
+            "missed_risks": [
+              "extended-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.6
+          },
+          "entered": [],
+          "exited": [],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.5": {
+          "selected": [
+            "generic-risk",
+            "brief-risk",
+            "evening-ok",
+            "extended-ok",
+            "evening-risk"
+          ],
+          "scores": {
+            "early-ok": 0.9112597547380157,
+            "early-risk": 0.8414193302891932,
+            "evening-ok": 0.9317863805970149,
+            "evening-risk": 0.9276497695852535,
+            "brief-ok": 0.8978354978354979,
+            "brief-risk": 0.9462481962481962,
+            "extended-ok": 0.9295774647887324,
+            "extended-risk": 0.878834991708126,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077922,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8079824561403509,
+            "wifi-ad": 0.9019352033050663,
+            "conference-ad": 0.9061399647887324,
+            "generic-risk": 0.9919354838709677,
+            "early-weekday": 0.8970588235294118,
+            "evening-weekend": 0.9112597547380157,
+            "generic-quiet": 0.8079824561403509
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "brief-risk",
+              "evening-ok",
+              "extended-ok",
+              "evening-risk"
+            ],
+            "precision_at_k": 0.2,
+            "recall_at_k": 0.3333333333333333,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 0.25,
+            "missed_risks": [
+              "extended-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.6
+          },
+          "entered": [
+            "evening-ok",
+            "extended-ok"
+          ],
+          "exited": [
+            "conference-ad",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "extended-ok"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.8": {
+          "selected": [
+            "generic-risk",
+            "extended-ok",
+            "brief-risk",
+            "evening-ok",
+            "early-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9275808249721293,
+            "early-risk": 0.8449010654490107,
+            "evening-ok": 0.944589552238806,
+            "evening-risk": 0.8939170506912442,
+            "brief-ok": 0.9136796536796536,
+            "brief-risk": 0.9594516594516594,
+            "extended-ok": 0.971830985915493,
+            "extended-risk": 0.8978026533996682,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077922,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8111929824561404,
+            "wifi-ad": 0.8621439443357252,
+            "conference-ad": 0.8779489436619717,
+            "generic-risk": 0.9870967741935484,
+            "early-weekday": 0.8970588235294119,
+            "evening-weekend": 0.894938684503902,
+            "generic-quiet": 0.8047719298245615
+          },
+          "metrics": {
+            "retrieved": [
+              "generic-risk",
+              "extended-ok",
+              "brief-risk",
+              "evening-ok",
+              "early-ok"
+            ],
+            "precision_at_k": 0.2,
+            "recall_at_k": 0.3333333333333333,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [
+              "extended-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "early-ok",
+            "evening-ok",
+            "extended-ok"
+          ],
+          "exited": [
+            "conference-ad",
+            "evening-risk",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "extended-ok"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "evening-risk"
+          ]
+        },
+        "1": {
+          "selected": [
+            "extended-ok",
+            "generic-risk",
+            "brief-risk",
+            "evening-ok",
+            "early-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9384615384615385,
+            "early-risk": 0.8472222222222222,
+            "evening-ok": 0.953125,
+            "evening-risk": 0.8714285714285714,
+            "brief-ok": 0.9242424242424242,
+            "brief-risk": 0.9682539682539683,
+            "extended-ok": 1.0,
+            "extended-risk": 0.9104477611940298,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077922,
+            "weekday-ok": 0.8243243243243243,
+            "weekday-risk": 0.8133333333333334,
+            "wifi-ad": 0.8356164383561644,
+            "conference-ad": 0.8591549295774648,
+            "generic-risk": 0.9838709677419355,
+            "early-weekday": 0.8970588235294118,
+            "evening-weekend": 0.8840579710144928,
+            "generic-quiet": 0.8026315789473685
+          },
+          "metrics": {
+            "retrieved": [
+              "extended-ok",
+              "generic-risk",
+              "brief-risk",
+              "evening-ok",
+              "early-ok"
+            ],
+            "precision_at_k": 0.2,
+            "recall_at_k": 0.3333333333333333,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [
+              "extended-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.4
+          },
+          "entered": [
+            "early-ok",
+            "evening-ok",
+            "extended-ok"
+          ],
+          "exited": [
+            "conference-ad",
+            "evening-risk",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "extended-ok"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "evening-risk"
+          ]
+        }
+      },
+      "theme_vector": {
+        "retrieved": [
+          "generic-risk",
+          "brief-risk",
+          "evening-risk",
+          "evening-ok",
+          "wifi-ad"
+        ],
+        "precision_at_k": 0.0,
+        "recall_at_k": 0.0,
+        "risk_recall_at_k": 0.0,
+        "reciprocal_rank": 0,
+        "missed_risks": [
+          "extended-risk"
+        ],
+        "general_topic_risk_recall_at_5": 0.6
+      }
+    },
+    {
+      "id": "weekend-sleep",
+      "query": "I sleep in the apartment on Saturday and Sunday nights and want quiet surroundings.",
+      "preferences": {
+        "quiet": 3
+      },
+      "relevant": [
+        "weekend-ok",
+        "weekend-risk",
+        "weekday-ok",
+        "weekday-risk",
+        "evening-weekend"
+      ],
+      "risks": [
+        "weekend-risk",
+        "evening-weekend"
+      ],
+      "general_topic_risks": [
+        "early-weekday",
+        "evening-weekend",
+        "weekday-risk",
+        "weekend-risk"
+      ],
+      "signals": {
+        "early-ok": {
+          "topic": 0.8840579710144928,
+          "original": 0.8840579710144928,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "early-risk": {
+          "topic": 0.8714285714285714,
+          "original": 0.8714285714285714,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "evening-ok": {
+          "topic": 0.8133333333333334,
+          "original": 0.8133333333333334,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "evening-risk": {
+          "topic": 0.8591549295774648,
+          "original": 0.8472222222222222,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "brief-ok": {
+          "topic": 0.8243243243243243,
+          "original": 0.8026315789473685,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "brief-risk": {
+          "topic": 0.7922077922077922,
+          "original": 0.7922077922077922,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "extended-ok": {
+          "topic": 0.8472222222222222,
+          "original": 0.8243243243243243,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "extended-risk": {
+          "topic": 0.782051282051282,
+          "original": 0.782051282051282,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "weekend-ok": {
+          "topic": 0.8970588235294118,
+          "original": 0.9682539682539683,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "weekend-risk": {
+          "topic": 1.0,
+          "original": 0.9838709677419355,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "weekday-ok": {
+          "topic": 0.9682539682539683,
+          "original": 1.0,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "weekday-risk": {
+          "topic": 0.9242424242424242,
+          "original": 0.9242424242424242,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "wifi-ad": {
+          "topic": 0.8026315789473685,
+          "original": 0.8591549295774648,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "conference-ad": {
+          "topic": 0.9384615384615385,
+          "original": 0.953125,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "generic-risk": {
+          "topic": 0.8356164383561644,
+          "original": 0.8356164383561644,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "early-weekday": {
+          "topic": 0.9838709677419355,
+          "original": 0.8970588235294118,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "evening-weekend": {
+          "topic": 0.9104477611940298,
+          "original": 0.9104477611940298,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "generic-quiet": {
+          "topic": 0.953125,
+          "original": 0.9384615384615385,
+          "coverage": [
+            "quiet"
+          ]
+        }
+      },
+      "variants": {
+        "0": {
+          "selected": [
+            "weekend-risk",
+            "early-weekday",
+            "weekday-ok",
+            "generic-quiet",
+            "conference-ad"
+          ],
+          "scores": {
+            "early-ok": 0.8840579710144928,
+            "early-risk": 0.8714285714285714,
+            "evening-ok": 0.8133333333333334,
+            "evening-risk": 0.8591549295774648,
+            "brief-ok": 0.8243243243243243,
+            "brief-risk": 0.7922077922077922,
+            "extended-ok": 0.8472222222222222,
+            "extended-risk": 0.782051282051282,
+            "weekend-ok": 0.8970588235294118,
+            "weekend-risk": 1.0,
+            "weekday-ok": 0.9682539682539683,
+            "weekday-risk": 0.9242424242424242,
+            "wifi-ad": 0.8026315789473685,
+            "conference-ad": 0.9384615384615385,
+            "generic-risk": 0.8356164383561644,
+            "early-weekday": 0.9838709677419355,
+            "evening-weekend": 0.9104477611940298,
+            "generic-quiet": 0.953125
+          },
+          "metrics": {
+            "retrieved": [
+              "weekend-risk",
+              "early-weekday",
+              "weekday-ok",
+              "generic-quiet",
+              "conference-ad"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.4,
+            "risk_recall_at_k": 0.5,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [
+              "evening-weekend"
+            ],
+            "general_topic_risk_recall_at_5": 0.5
+          },
+          "entered": [],
+          "exited": [],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.2": {
+          "selected": [
+            "weekend-risk",
+            "weekday-ok",
+            "early-weekday",
+            "generic-quiet",
+            "conference-ad"
+          ],
+          "scores": {
+            "early-ok": 0.8840579710144929,
+            "early-risk": 0.8714285714285714,
+            "evening-ok": 0.8133333333333335,
+            "evening-risk": 0.8567683881064163,
+            "brief-ok": 0.8199857752489332,
+            "brief-risk": 0.7922077922077924,
+            "extended-ok": 0.8426426426426427,
+            "extended-risk": 0.782051282051282,
+            "weekend-ok": 0.9112978524743232,
+            "weekend-risk": 0.9967741935483871,
+            "weekday-ok": 0.9746031746031747,
+            "weekday-risk": 0.9242424242424242,
+            "wifi-ad": 0.8139362490733878,
+            "conference-ad": 0.9413942307692309,
+            "generic-risk": 0.8356164383561644,
+            "early-weekday": 0.9665085388994308,
+            "evening-weekend": 0.9104477611940298,
+            "generic-quiet": 0.9501923076923078
+          },
+          "metrics": {
+            "retrieved": [
+              "weekend-risk",
+              "weekday-ok",
+              "early-weekday",
+              "generic-quiet",
+              "conference-ad"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.4,
+            "risk_recall_at_k": 0.5,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [
+              "evening-weekend"
+            ],
+            "general_topic_risk_recall_at_5": 0.5
+          },
+          "entered": [],
+          "exited": [],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.5": {
+          "selected": [
+            "weekend-risk",
+            "weekday-ok",
+            "conference-ad",
+            "generic-quiet",
+            "early-weekday"
+          ],
+          "scores": {
+            "early-ok": 0.8840579710144928,
+            "early-risk": 0.8714285714285714,
+            "evening-ok": 0.8133333333333334,
+            "evening-risk": 0.8531885758998434,
+            "brief-ok": 0.8134779516358464,
+            "brief-risk": 0.7922077922077922,
+            "extended-ok": 0.8357732732732732,
+            "extended-risk": 0.782051282051282,
+            "weekend-ok": 0.93265639589169,
+            "weekend-risk": 0.9919354838709677,
+            "weekday-ok": 0.9841269841269842,
+            "weekday-risk": 0.9242424242424242,
+            "wifi-ad": 0.8308932542624166,
+            "conference-ad": 0.9457932692307692,
+            "generic-risk": 0.8356164383561644,
+            "early-weekday": 0.9404648956356736,
+            "evening-weekend": 0.9104477611940298,
+            "generic-quiet": 0.9457932692307692
+          },
+          "metrics": {
+            "retrieved": [
+              "weekend-risk",
+              "weekday-ok",
+              "conference-ad",
+              "generic-quiet",
+              "early-weekday"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.4,
+            "risk_recall_at_k": 0.5,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [
+              "evening-weekend"
+            ],
+            "general_topic_risk_recall_at_5": 0.5
+          },
+          "entered": [],
+          "exited": [],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.8": {
+          "selected": [
+            "weekday-ok",
+            "weekend-risk",
+            "weekend-ok",
+            "conference-ad",
+            "generic-quiet"
+          ],
+          "scores": {
+            "early-ok": 0.8840579710144928,
+            "early-risk": 0.8714285714285714,
+            "evening-ok": 0.8133333333333334,
+            "evening-risk": 0.8496087636932708,
+            "brief-ok": 0.8069701280227597,
+            "brief-risk": 0.7922077922077922,
+            "extended-ok": 0.8289039039039039,
+            "extended-risk": 0.782051282051282,
+            "weekend-ok": 0.9540149393090569,
+            "weekend-risk": 0.9870967741935484,
+            "weekday-ok": 0.9936507936507937,
+            "weekday-risk": 0.9242424242424242,
+            "wifi-ad": 0.8478502594514454,
+            "conference-ad": 0.9501923076923078,
+            "generic-risk": 0.8356164383561644,
+            "early-weekday": 0.9144212523719166,
+            "evening-weekend": 0.9104477611940298,
+            "generic-quiet": 0.9413942307692308
+          },
+          "metrics": {
+            "retrieved": [
+              "weekday-ok",
+              "weekend-risk",
+              "weekend-ok",
+              "conference-ad",
+              "generic-quiet"
+            ],
+            "precision_at_k": 0.6,
+            "recall_at_k": 0.6,
+            "risk_recall_at_k": 0.5,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [
+              "evening-weekend"
+            ],
+            "general_topic_risk_recall_at_5": 0.25
+          },
+          "entered": [
+            "weekend-ok"
+          ],
+          "exited": [
+            "early-weekday"
+          ],
+          "new_relevant": [
+            "weekend-ok"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "early-weekday"
+          ]
+        },
+        "1": {
+          "selected": [
+            "weekday-ok",
+            "weekend-risk",
+            "weekend-ok",
+            "conference-ad",
+            "generic-quiet"
+          ],
+          "scores": {
+            "early-ok": 0.8840579710144928,
+            "early-risk": 0.8714285714285714,
+            "evening-ok": 0.8133333333333334,
+            "evening-risk": 0.8472222222222222,
+            "brief-ok": 0.8026315789473685,
+            "brief-risk": 0.7922077922077922,
+            "extended-ok": 0.8243243243243243,
+            "extended-risk": 0.782051282051282,
+            "weekend-ok": 0.9682539682539683,
+            "weekend-risk": 0.9838709677419355,
+            "weekday-ok": 1.0,
+            "weekday-risk": 0.9242424242424242,
+            "wifi-ad": 0.8591549295774648,
+            "conference-ad": 0.953125,
+            "generic-risk": 0.8356164383561644,
+            "early-weekday": 0.8970588235294118,
+            "evening-weekend": 0.9104477611940298,
+            "generic-quiet": 0.9384615384615385
+          },
+          "metrics": {
+            "retrieved": [
+              "weekday-ok",
+              "weekend-risk",
+              "weekend-ok",
+              "conference-ad",
+              "generic-quiet"
+            ],
+            "precision_at_k": 0.6,
+            "recall_at_k": 0.6,
+            "risk_recall_at_k": 0.5,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [
+              "evening-weekend"
+            ],
+            "general_topic_risk_recall_at_5": 0.25
+          },
+          "entered": [
+            "weekend-ok"
+          ],
+          "exited": [
+            "early-weekday"
+          ],
+          "new_relevant": [
+            "weekend-ok"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "early-weekday"
+          ]
+        }
+      },
+      "theme_vector": {
+        "retrieved": [
+          "weekend-risk",
+          "early-weekday",
+          "weekday-risk",
+          "generic-quiet",
+          "weekday-ok"
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 0.6,
+        "risk_recall_at_k": 0.5,
+        "reciprocal_rank": 1.0,
+        "missed_risks": [
+          "evening-weekend"
+        ],
+        "general_topic_risk_recall_at_5": 0.75
+      }
+    },
+    {
+      "id": "weekday-sleep",
+      "query": "I sleep in the apartment Monday through Thursday and want quiet surroundings before dawn.",
+      "preferences": {
+        "quiet": 3
+      },
+      "relevant": [
+        "weekday-ok",
+        "weekday-risk",
+        "early-weekday"
+      ],
+      "risks": [
+        "weekday-risk",
+        "early-weekday"
+      ],
+      "general_topic_risks": [
+        "early-weekday",
+        "evening-weekend",
+        "weekday-risk",
+        "weekend-risk"
+      ],
+      "signals": {
+        "early-ok": {
+          "topic": 0.8840579710144928,
+          "original": 0.8970588235294118,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "early-risk": {
+          "topic": 0.8714285714285714,
+          "original": 0.8840579710144928,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "evening-ok": {
+          "topic": 0.8133333333333334,
+          "original": 0.8356164383561644,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "evening-risk": {
+          "topic": 0.8591549295774648,
+          "original": 0.8472222222222222,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "brief-ok": {
+          "topic": 0.8243243243243243,
+          "original": 0.8026315789473685,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "brief-risk": {
+          "topic": 0.7922077922077922,
+          "original": 0.7922077922077922,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "extended-ok": {
+          "topic": 0.8472222222222222,
+          "original": 0.8133333333333334,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "extended-risk": {
+          "topic": 0.782051282051282,
+          "original": 0.782051282051282,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "weekend-ok": {
+          "topic": 0.8970588235294118,
+          "original": 0.9384615384615385,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "weekend-risk": {
+          "topic": 1.0,
+          "original": 0.9682539682539683,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "weekday-ok": {
+          "topic": 0.9682539682539683,
+          "original": 1.0,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "weekday-risk": {
+          "topic": 0.9242424242424242,
+          "original": 0.9838709677419355,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "wifi-ad": {
+          "topic": 0.8026315789473685,
+          "original": 0.8591549295774648,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "conference-ad": {
+          "topic": 0.9384615384615385,
+          "original": 0.953125,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "generic-risk": {
+          "topic": 0.8356164383561644,
+          "original": 0.8243243243243243,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "early-weekday": {
+          "topic": 0.9838709677419355,
+          "original": 0.9104477611940298,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "evening-weekend": {
+          "topic": 0.9104477611940298,
+          "original": 0.8714285714285714,
+          "coverage": [
+            "quiet"
+          ]
+        },
+        "generic-quiet": {
+          "topic": 0.953125,
+          "original": 0.9242424242424242,
+          "coverage": [
+            "quiet"
+          ]
+        }
+      },
+      "variants": {
+        "0": {
+          "selected": [
+            "weekend-risk",
+            "early-weekday",
+            "weekday-ok",
+            "generic-quiet",
+            "conference-ad"
+          ],
+          "scores": {
+            "early-ok": 0.8840579710144928,
+            "early-risk": 0.8714285714285714,
+            "evening-ok": 0.8133333333333334,
+            "evening-risk": 0.8591549295774648,
+            "brief-ok": 0.8243243243243243,
+            "brief-risk": 0.7922077922077922,
+            "extended-ok": 0.8472222222222222,
+            "extended-risk": 0.782051282051282,
+            "weekend-ok": 0.8970588235294118,
+            "weekend-risk": 1.0,
+            "weekday-ok": 0.9682539682539683,
+            "weekday-risk": 0.9242424242424242,
+            "wifi-ad": 0.8026315789473685,
+            "conference-ad": 0.9384615384615385,
+            "generic-risk": 0.8356164383561644,
+            "early-weekday": 0.9838709677419355,
+            "evening-weekend": 0.9104477611940298,
+            "generic-quiet": 0.953125
+          },
+          "metrics": {
+            "retrieved": [
+              "weekend-risk",
+              "early-weekday",
+              "weekday-ok",
+              "generic-quiet",
+              "conference-ad"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 0.5,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [
+              "weekday-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.5
+          },
+          "entered": [],
+          "exited": [],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.2": {
+          "selected": [
+            "weekend-risk",
+            "weekday-ok",
+            "early-weekday",
+            "generic-quiet",
+            "conference-ad"
+          ],
+          "scores": {
+            "early-ok": 0.8866581415174767,
+            "early-risk": 0.8739544513457558,
+            "evening-ok": 0.8177899543378996,
+            "evening-risk": 0.8567683881064163,
+            "brief-ok": 0.8199857752489332,
+            "brief-risk": 0.7922077922077924,
+            "extended-ok": 0.8404444444444445,
+            "extended-risk": 0.782051282051282,
+            "weekend-ok": 0.9053393665158372,
+            "weekend-risk": 0.9936507936507937,
+            "weekday-ok": 0.9746031746031747,
+            "weekday-risk": 0.9361681329423265,
+            "wifi-ad": 0.8139362490733878,
+            "conference-ad": 0.9413942307692309,
+            "generic-risk": 0.8333580155497964,
+            "early-weekday": 0.9691863264323544,
+            "evening-weekend": 0.9026439232409381,
+            "generic-quiet": 0.9473484848484849
+          },
+          "metrics": {
+            "retrieved": [
+              "weekend-risk",
+              "weekday-ok",
+              "early-weekday",
+              "generic-quiet",
+              "conference-ad"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 0.5,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [
+              "weekday-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.5
+          },
+          "entered": [],
+          "exited": [],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.5": {
+          "selected": [
+            "weekend-risk",
+            "weekday-ok",
+            "weekday-risk",
+            "early-weekday",
+            "conference-ad"
+          ],
+          "scores": {
+            "early-ok": 0.8905583972719523,
+            "early-risk": 0.8777432712215321,
+            "evening-ok": 0.8244748858447488,
+            "evening-risk": 0.8531885758998434,
+            "brief-ok": 0.8134779516358464,
+            "brief-risk": 0.7922077922077922,
+            "extended-ok": 0.8302777777777778,
+            "extended-risk": 0.782051282051282,
+            "weekend-ok": 0.9177601809954752,
+            "weekend-risk": 0.9841269841269842,
+            "weekday-ok": 0.9841269841269842,
+            "weekday-risk": 0.9540566959921799,
+            "wifi-ad": 0.8308932542624166,
+            "conference-ad": 0.9457932692307692,
+            "generic-risk": 0.8299703813402444,
+            "early-weekday": 0.9471593644679827,
+            "evening-weekend": 0.8909381663113006,
+            "generic-quiet": 0.9386837121212122
+          },
+          "metrics": {
+            "retrieved": [
+              "weekend-risk",
+              "weekday-ok",
+              "weekday-risk",
+              "early-weekday",
+              "conference-ad"
+            ],
+            "precision_at_k": 0.6,
+            "recall_at_k": 1.0,
+            "risk_recall_at_k": 1.0,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [],
+            "general_topic_risk_recall_at_5": 0.75
+          },
+          "entered": [
+            "weekday-risk"
+          ],
+          "exited": [
+            "generic-quiet"
+          ],
+          "new_relevant": [
+            "weekday-risk"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [
+            "weekday-risk"
+          ],
+          "displaced_risks": []
+        },
+        "0.8": {
+          "selected": [
+            "weekday-ok",
+            "weekend-risk",
+            "weekday-risk",
+            "conference-ad",
+            "weekend-ok"
+          ],
+          "scores": {
+            "early-ok": 0.894458653026428,
+            "early-risk": 0.8815320910973086,
+            "evening-ok": 0.8311598173515982,
+            "evening-risk": 0.8496087636932708,
+            "brief-ok": 0.8069701280227597,
+            "brief-risk": 0.7922077922077922,
+            "extended-ok": 0.8201111111111111,
+            "extended-risk": 0.782051282051282,
+            "weekend-ok": 0.9301809954751132,
+            "weekend-risk": 0.9746031746031746,
+            "weekday-ok": 0.9936507936507937,
+            "weekday-risk": 0.9719452590420332,
+            "wifi-ad": 0.8478502594514454,
+            "conference-ad": 0.9501923076923078,
+            "generic-risk": 0.8265827471306924,
+            "early-weekday": 0.925132402503611,
+            "evening-weekend": 0.8792324093816631,
+            "generic-quiet": 0.9300189393939393
+          },
+          "metrics": {
+            "retrieved": [
+              "weekday-ok",
+              "weekend-risk",
+              "weekday-risk",
+              "conference-ad",
+              "weekend-ok"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 0.5,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [
+              "early-weekday"
+            ],
+            "general_topic_risk_recall_at_5": 0.5
+          },
+          "entered": [
+            "weekday-risk",
+            "weekend-ok"
+          ],
+          "exited": [
+            "early-weekday",
+            "generic-quiet"
+          ],
+          "new_relevant": [
+            "weekday-risk"
+          ],
+          "displaced_relevant": [
+            "early-weekday"
+          ],
+          "new_risks": [
+            "weekday-risk"
+          ],
+          "displaced_risks": [
+            "early-weekday"
+          ]
+        },
+        "1": {
+          "selected": [
+            "weekday-ok",
+            "weekday-risk",
+            "weekend-risk",
+            "conference-ad",
+            "weekend-ok"
+          ],
+          "scores": {
+            "early-ok": 0.8970588235294118,
+            "early-risk": 0.8840579710144928,
+            "evening-ok": 0.8356164383561644,
+            "evening-risk": 0.8472222222222222,
+            "brief-ok": 0.8026315789473685,
+            "brief-risk": 0.7922077922077922,
+            "extended-ok": 0.8133333333333334,
+            "extended-risk": 0.782051282051282,
+            "weekend-ok": 0.9384615384615385,
+            "weekend-risk": 0.9682539682539683,
+            "weekday-ok": 1.0,
+            "weekday-risk": 0.9838709677419355,
+            "wifi-ad": 0.8591549295774648,
+            "conference-ad": 0.953125,
+            "generic-risk": 0.8243243243243243,
+            "early-weekday": 0.9104477611940298,
+            "evening-weekend": 0.8714285714285714,
+            "generic-quiet": 0.9242424242424242
+          },
+          "metrics": {
+            "retrieved": [
+              "weekday-ok",
+              "weekday-risk",
+              "weekend-risk",
+              "conference-ad",
+              "weekend-ok"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.6666666666666666,
+            "risk_recall_at_k": 0.5,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [
+              "early-weekday"
+            ],
+            "general_topic_risk_recall_at_5": 0.5
+          },
+          "entered": [
+            "weekday-risk",
+            "weekend-ok"
+          ],
+          "exited": [
+            "early-weekday",
+            "generic-quiet"
+          ],
+          "new_relevant": [
+            "weekday-risk"
+          ],
+          "displaced_relevant": [
+            "early-weekday"
+          ],
+          "new_risks": [
+            "weekday-risk"
+          ],
+          "displaced_risks": [
+            "early-weekday"
+          ]
+        }
+      },
+      "theme_vector": {
+        "retrieved": [
+          "weekend-risk",
+          "early-weekday",
+          "weekday-risk",
+          "generic-quiet",
+          "weekday-ok"
+        ],
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "risk_recall_at_k": 1.0,
+        "reciprocal_rank": 0.5,
+        "missed_risks": [],
+        "general_topic_risk_recall_at_5": 0.75
+      }
+    },
+    {
+      "id": "weekday-early-work",
+      "query": "On weekdays before sunrise I need reliable video meetings and a quiet room in the rental.",
+      "preferences": {
+        "video_calls": 3,
+        "quiet": 2
+      },
+      "relevant": [
+        "early-ok",
+        "early-risk",
+        "weekday-ok",
+        "weekday-risk",
+        "early-weekday"
+      ],
+      "risks": [
+        "early-risk",
+        "weekday-risk",
+        "early-weekday"
+      ],
+      "general_topic_risks": [
+        "brief-risk",
+        "early-risk",
+        "early-weekday",
+        "evening-risk",
+        "evening-weekend",
+        "extended-risk",
+        "generic-risk",
+        "weekday-risk",
+        "weekend-risk"
+      ],
+      "signals": {
+        "early-ok": {
+          "topic": 0.8591549295774648,
+          "original": 0.9838709677419355,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "early-risk": {
+          "topic": 0.8026315789473685,
+          "original": 0.8970588235294118,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "evening-ok": {
+          "topic": 0.8472222222222222,
+          "original": 0.9242424242424242,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "evening-risk": {
+          "topic": 0.9838709677419355,
+          "original": 0.8591549295774648,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "brief-ok": {
+          "topic": 0.8133333333333334,
+          "original": 0.9104477611940298,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "brief-risk": {
+          "topic": 0.8714285714285714,
+          "original": 0.8026315789473685,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "extended-ok": {
+          "topic": 0.8356164383561644,
+          "original": 0.8714285714285714,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "extended-risk": {
+          "topic": 0.7922077922077922,
+          "original": 0.8243243243243243,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "weekend-ok": {
+          "topic": 0.782051282051282,
+          "original": 0.782051282051282,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "weekend-risk": {
+          "topic": 0.9104477611940298,
+          "original": 0.7922077922077922,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "weekday-ok": {
+          "topic": 0.8970588235294118,
+          "original": 0.9682539682539683,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "weekday-risk": {
+          "topic": 0.8243243243243243,
+          "original": 0.8840579710144928,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "wifi-ad": {
+          "topic": 0.953125,
+          "original": 0.8356164383561644,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "conference-ad": {
+          "topic": 1.0,
+          "original": 0.9384615384615385,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "generic-risk": {
+          "topic": 0.9682539682539683,
+          "original": 0.953125,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "early-weekday": {
+          "topic": 0.9242424242424242,
+          "original": 1.0,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "evening-weekend": {
+          "topic": 0.9384615384615385,
+          "original": 0.8133333333333334,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "generic-quiet": {
+          "topic": 0.8840579710144928,
+          "original": 0.8472222222222222,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        }
+      },
+      "variants": {
+        "0": {
+          "selected": [
+            "conference-ad",
+            "evening-risk",
+            "generic-risk",
+            "wifi-ad",
+            "evening-weekend"
+          ],
+          "scores": {
+            "early-ok": 0.8591549295774648,
+            "early-risk": 0.8026315789473685,
+            "evening-ok": 0.8472222222222222,
+            "evening-risk": 0.9838709677419355,
+            "brief-ok": 0.8133333333333334,
+            "brief-risk": 0.8714285714285714,
+            "extended-ok": 0.8356164383561644,
+            "extended-risk": 0.7922077922077922,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.9104477611940298,
+            "weekday-ok": 0.8970588235294118,
+            "weekday-risk": 0.8243243243243243,
+            "wifi-ad": 0.953125,
+            "conference-ad": 1.0,
+            "generic-risk": 0.9682539682539683,
+            "early-weekday": 0.9242424242424242,
+            "evening-weekend": 0.9384615384615385,
+            "generic-quiet": 0.8840579710144928
+          },
+          "metrics": {
+            "retrieved": [
+              "conference-ad",
+              "evening-risk",
+              "generic-risk",
+              "wifi-ad",
+              "evening-weekend"
+            ],
+            "precision_at_k": 0.0,
+            "recall_at_k": 0.0,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 0,
+            "missed_risks": [
+              "early-risk",
+              "early-weekday",
+              "weekday-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.3333333333333333
+          },
+          "entered": [
+            "evening-weekend"
+          ],
+          "exited": [
+            "early-weekday"
+          ],
+          "new_relevant": [],
+          "displaced_relevant": [
+            "early-weekday"
+          ],
+          "new_risks": [
+            "evening-weekend"
+          ],
+          "displaced_risks": [
+            "early-weekday"
+          ]
+        },
+        "0.2": {
+          "selected": [
+            "conference-ad",
+            "generic-risk",
+            "evening-risk",
+            "early-weekday",
+            "wifi-ad"
+          ],
+          "scores": {
+            "early-ok": 0.8840981372103589,
+            "early-risk": 0.8215170278637772,
+            "evening-ok": 0.8626262626262626,
+            "evening-risk": 0.9589277601090413,
+            "brief-ok": 0.8327562189054727,
+            "brief-risk": 0.8576691729323309,
+            "extended-ok": 0.8427788649706458,
+            "extended-risk": 0.7986310986310987,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.8867997673967823,
+            "weekday-ok": 0.9112978524743232,
+            "weekday-risk": 0.8362710536623581,
+            "wifi-ad": 0.9296232876712329,
+            "conference-ad": 0.9876923076923078,
+            "generic-risk": 0.9652281746031747,
+            "early-weekday": 0.9393939393939394,
+            "evening-weekend": 0.9134358974358976,
+            "generic-quiet": 0.8766908212560387
+          },
+          "metrics": {
+            "retrieved": [
+              "conference-ad",
+              "generic-risk",
+              "evening-risk",
+              "early-weekday",
+              "wifi-ad"
+            ],
+            "precision_at_k": 0.2,
+            "recall_at_k": 0.2,
+            "risk_recall_at_k": 0.3333333333333333,
+            "reciprocal_rank": 0.25,
+            "missed_risks": [
+              "early-risk",
+              "weekday-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.3333333333333333
+          },
+          "entered": [],
+          "exited": [],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.5": {
+          "selected": [
+            "conference-ad",
+            "early-weekday",
+            "generic-risk",
+            "weekday-ok",
+            "early-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9215129486597001,
+            "early-risk": 0.8498452012383901,
+            "evening-ok": 0.8857323232323232,
+            "evening-risk": 0.9215129486597001,
+            "brief-ok": 0.8618905472636815,
+            "brief-risk": 0.83703007518797,
+            "extended-ok": 0.8535225048923679,
+            "extended-risk": 0.8082660582660584,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.8513277767009111,
+            "weekday-ok": 0.93265639589169,
+            "weekday-risk": 0.8541911476694086,
+            "wifi-ad": 0.8943707191780822,
+            "conference-ad": 0.9692307692307692,
+            "generic-risk": 0.9606894841269842,
+            "early-weekday": 0.9621212121212122,
+            "evening-weekend": 0.8758974358974358,
+            "generic-quiet": 0.8656400966183575
+          },
+          "metrics": {
+            "retrieved": [
+              "conference-ad",
+              "early-weekday",
+              "generic-risk",
+              "weekday-ok",
+              "early-ok"
+            ],
+            "precision_at_k": 0.6,
+            "recall_at_k": 0.6,
+            "risk_recall_at_k": 0.3333333333333333,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [
+              "early-risk",
+              "weekday-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.2222222222222222
+          },
+          "entered": [
+            "early-ok",
+            "weekday-ok"
+          ],
+          "exited": [
+            "evening-risk",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "early-ok",
+            "weekday-ok"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "evening-risk"
+          ]
+        },
+        "0.8": {
+          "selected": [
+            "early-weekday",
+            "early-ok",
+            "generic-risk",
+            "weekday-ok",
+            "conference-ad"
+          ],
+          "scores": {
+            "early-ok": 0.9589277601090413,
+            "early-risk": 0.8781733746130032,
+            "evening-ok": 0.9088383838383838,
+            "evening-risk": 0.8840981372103589,
+            "brief-ok": 0.8910248756218905,
+            "brief-risk": 0.8163909774436091,
+            "extended-ok": 0.86426614481409,
+            "extended-risk": 0.8179010179010179,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.8158557860050398,
+            "weekday-ok": 0.9540149393090569,
+            "weekday-risk": 0.8721112416764591,
+            "wifi-ad": 0.8591181506849315,
+            "conference-ad": 0.9507692307692308,
+            "generic-risk": 0.9561507936507937,
+            "early-weekday": 0.9848484848484849,
+            "evening-weekend": 0.8383589743589743,
+            "generic-quiet": 0.8545893719806763
+          },
+          "metrics": {
+            "retrieved": [
+              "early-weekday",
+              "early-ok",
+              "generic-risk",
+              "weekday-ok",
+              "conference-ad"
+            ],
+            "precision_at_k": 0.6,
+            "recall_at_k": 0.6,
+            "risk_recall_at_k": 0.3333333333333333,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [
+              "early-risk",
+              "weekday-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.2222222222222222
+          },
+          "entered": [
+            "early-ok",
+            "weekday-ok"
+          ],
+          "exited": [
+            "evening-risk",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "early-ok",
+            "weekday-ok"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "evening-risk"
+          ]
+        },
+        "1": {
+          "selected": [
+            "early-weekday",
+            "early-ok",
+            "weekday-ok",
+            "generic-risk",
+            "conference-ad"
+          ],
+          "scores": {
+            "early-ok": 0.9838709677419355,
+            "early-risk": 0.8970588235294118,
+            "evening-ok": 0.9242424242424242,
+            "evening-risk": 0.8591549295774648,
+            "brief-ok": 0.9104477611940298,
+            "brief-risk": 0.8026315789473685,
+            "extended-ok": 0.8714285714285714,
+            "extended-risk": 0.8243243243243243,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.7922077922077922,
+            "weekday-ok": 0.9682539682539683,
+            "weekday-risk": 0.8840579710144928,
+            "wifi-ad": 0.8356164383561644,
+            "conference-ad": 0.9384615384615385,
+            "generic-risk": 0.953125,
+            "early-weekday": 1.0,
+            "evening-weekend": 0.8133333333333334,
+            "generic-quiet": 0.8472222222222222
+          },
+          "metrics": {
+            "retrieved": [
+              "early-weekday",
+              "early-ok",
+              "weekday-ok",
+              "generic-risk",
+              "conference-ad"
+            ],
+            "precision_at_k": 0.6,
+            "recall_at_k": 0.6,
+            "risk_recall_at_k": 0.3333333333333333,
+            "reciprocal_rank": 1.0,
+            "missed_risks": [
+              "early-risk",
+              "weekday-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.2222222222222222
+          },
+          "entered": [
+            "early-ok",
+            "weekday-ok"
+          ],
+          "exited": [
+            "evening-risk",
+            "wifi-ad"
+          ],
+          "new_relevant": [
+            "early-ok",
+            "weekday-ok"
+          ],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "evening-risk"
+          ]
+        }
+      },
+      "theme_vector": {
+        "retrieved": [
+          "early-weekday",
+          "generic-risk",
+          "evening-risk",
+          "brief-risk",
+          "early-ok"
+        ],
+        "precision_at_k": 0.4,
+        "recall_at_k": 0.4,
+        "risk_recall_at_k": 0.3333333333333333,
+        "reciprocal_rank": 1.0,
+        "missed_risks": [
+          "early-risk",
+          "weekday-risk"
+        ],
+        "general_topic_risk_recall_at_5": 0.4444444444444444
+      }
+    },
+    {
+      "id": "weekend-evening-work",
+      "query": "On Saturday evenings after dinner I need reliable video meetings and a quiet room in the rental.",
+      "preferences": {
+        "video_calls": 3,
+        "quiet": 2
+      },
+      "relevant": [
+        "evening-ok",
+        "evening-risk",
+        "weekend-ok",
+        "weekend-risk",
+        "evening-weekend"
+      ],
+      "risks": [
+        "evening-risk",
+        "weekend-risk",
+        "evening-weekend"
+      ],
+      "general_topic_risks": [
+        "brief-risk",
+        "early-risk",
+        "early-weekday",
+        "evening-risk",
+        "evening-weekend",
+        "extended-risk",
+        "generic-risk",
+        "weekday-risk",
+        "weekend-risk"
+      ],
+      "signals": {
+        "early-ok": {
+          "topic": 0.8591549295774648,
+          "original": 0.9384615384615385,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "early-risk": {
+          "topic": 0.8026315789473685,
+          "original": 0.782051282051282,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "evening-ok": {
+          "topic": 0.8472222222222222,
+          "original": 0.953125,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "evening-risk": {
+          "topic": 0.9838709677419355,
+          "original": 0.8970588235294118,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "brief-ok": {
+          "topic": 0.8133333333333334,
+          "original": 0.9104477611940298,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "brief-risk": {
+          "topic": 0.8714285714285714,
+          "original": 0.8133333333333334,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "extended-ok": {
+          "topic": 0.8356164383561644,
+          "original": 0.8591549295774648,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "extended-risk": {
+          "topic": 0.7922077922077922,
+          "original": 0.8472222222222222,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "weekend-ok": {
+          "topic": 0.782051282051282,
+          "original": 0.8243243243243243,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "weekend-risk": {
+          "topic": 0.9104477611940298,
+          "original": 0.8714285714285714,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "weekday-ok": {
+          "topic": 0.8970588235294118,
+          "original": 0.9838709677419355,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "weekday-risk": {
+          "topic": 0.8243243243243243,
+          "original": 0.8026315789473685,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "wifi-ad": {
+          "topic": 0.953125,
+          "original": 0.7922077922077922,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "conference-ad": {
+          "topic": 1.0,
+          "original": 1.0,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "generic-risk": {
+          "topic": 0.9682539682539683,
+          "original": 0.9242424242424242,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "early-weekday": {
+          "topic": 0.9242424242424242,
+          "original": 0.9682539682539683,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "evening-weekend": {
+          "topic": 0.9384615384615385,
+          "original": 0.8840579710144928,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        },
+        "generic-quiet": {
+          "topic": 0.8840579710144928,
+          "original": 0.8356164383561644,
+          "coverage": [
+            "quiet",
+            "video_calls"
+          ]
+        }
+      },
+      "variants": {
+        "0": {
+          "selected": [
+            "conference-ad",
+            "evening-risk",
+            "generic-risk",
+            "wifi-ad",
+            "evening-weekend"
+          ],
+          "scores": {
+            "early-ok": 0.8591549295774648,
+            "early-risk": 0.8026315789473685,
+            "evening-ok": 0.8472222222222222,
+            "evening-risk": 0.9838709677419355,
+            "brief-ok": 0.8133333333333334,
+            "brief-risk": 0.8714285714285714,
+            "extended-ok": 0.8356164383561644,
+            "extended-risk": 0.7922077922077922,
+            "weekend-ok": 0.782051282051282,
+            "weekend-risk": 0.9104477611940298,
+            "weekday-ok": 0.8970588235294118,
+            "weekday-risk": 0.8243243243243243,
+            "wifi-ad": 0.953125,
+            "conference-ad": 1.0,
+            "generic-risk": 0.9682539682539683,
+            "early-weekday": 0.9242424242424242,
+            "evening-weekend": 0.9384615384615385,
+            "generic-quiet": 0.8840579710144928
+          },
+          "metrics": {
+            "retrieved": [
+              "conference-ad",
+              "evening-risk",
+              "generic-risk",
+              "wifi-ad",
+              "evening-weekend"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.4,
+            "risk_recall_at_k": 0.6666666666666666,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [
+              "weekend-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.3333333333333333
+          },
+          "entered": [
+            "wifi-ad"
+          ],
+          "exited": [
+            "early-weekday"
+          ],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": [
+            "early-weekday"
+          ]
+        },
+        "0.2": {
+          "selected": [
+            "conference-ad",
+            "evening-risk",
+            "generic-risk",
+            "early-weekday",
+            "evening-weekend"
+          ],
+          "scores": {
+            "early-ok": 0.8750162513542795,
+            "early-risk": 0.7985155195681513,
+            "evening-ok": 0.8684027777777779,
+            "evening-risk": 0.9665085388994308,
+            "brief-ok": 0.8327562189054727,
+            "brief-risk": 0.8598095238095238,
+            "extended-ok": 0.8403241366004245,
+            "extended-risk": 0.8032106782106783,
+            "weekend-ok": 0.7905058905058905,
+            "weekend-risk": 0.9026439232409381,
+            "weekday-ok": 0.9144212523719166,
+            "weekday-risk": 0.8199857752489332,
+            "wifi-ad": 0.9209415584415586,
+            "conference-ad": 1.0,
+            "generic-risk": 0.9594516594516594,
+            "early-weekday": 0.933044733044733,
+            "evening-weekend": 0.9275808249721295,
+            "generic-quiet": 0.8743696644828272
+          },
+          "metrics": {
+            "retrieved": [
+              "conference-ad",
+              "evening-risk",
+              "generic-risk",
+              "early-weekday",
+              "evening-weekend"
+            ],
+            "precision_at_k": 0.4,
+            "recall_at_k": 0.4,
+            "risk_recall_at_k": 0.6666666666666666,
+            "reciprocal_rank": 0.5,
+            "missed_risks": [
+              "weekend-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.4444444444444444
+          },
+          "entered": [],
+          "exited": [],
+          "new_relevant": [],
+          "displaced_relevant": [],
+          "new_risks": [],
+          "displaced_risks": []
+        },
+        "0.5": {
+          "selected": [
+            "conference-ad",
+            "generic-risk",
+            "early-weekday",
+            "evening-risk",
+            "weekday-ok"
+          ],
+          "scores": {
+            "early-ok": 0.8988082340195016,
+            "early-risk": 0.7923414304993253,
+            "evening-ok": 0.9001736111111112,
+            "evening-risk": 0.9404648956356736,
+            "brief-ok": 0.8618905472636815,
+            "brief-risk": 0.8423809523809525,
+            "extended-ok": 0.8473856839668146,
+            "extended-risk": 0.8197150072150072,
+            "weekend-ok": 0.8031878031878033,
+            "weekend-risk": 0.8909381663113006,
+            "weekday-ok": 0.9404648956356736,
+            "weekday-risk": 0.8134779516358464,
+            "wifi-ad": 0.8726663961038961,
+            "conference-ad": 1.0,
+            "generic-risk": 0.9462481962481962,
+            "early-weekday": 0.9462481962481962,
+            "evening-weekend": 0.9112597547380157,
+            "generic-quiet": 0.8598372046853286
+          },
+          "metrics": {
+            "retrieved": [
+              "conference-ad",
+              "generic-risk",
+              "early-weekday",
+              "evening-risk",
+              "weekday-ok"
+            ],
+            "precision_at_k": 0.2,
+            "recall_at_k": 0.2,
+            "risk_recall_at_k": 0.3333333333333333,
+            "reciprocal_rank": 0.25,
+            "missed_risks": [
+              "evening-weekend",
+              "weekend-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.3333333333333333
+          },
+          "entered": [
+            "weekday-ok"
+          ],
+          "exited": [
+            "evening-weekend"
+          ],
+          "new_relevant": [],
+          "displaced_relevant": [
+            "evening-weekend"
+          ],
+          "new_risks": [],
+          "displaced_risks": [
+            "evening-weekend"
+          ]
+        },
+        "0.8": {
+          "selected": [
+            "conference-ad",
+            "weekday-ok",
+            "early-weekday",
+            "generic-risk",
+            "evening-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9226002166847238,
+            "early-risk": 0.7861673414304993,
+            "evening-ok": 0.9319444444444445,
+            "evening-risk": 0.9144212523719166,
+            "brief-ok": 0.8910248756218905,
+            "brief-risk": 0.824952380952381,
+            "extended-ok": 0.8544472313332047,
+            "extended-risk": 0.8362193362193362,
+            "weekend-ok": 0.8158697158697159,
+            "weekend-risk": 0.8792324093816631,
+            "weekday-ok": 0.9665085388994308,
+            "weekday-risk": 0.8069701280227597,
+            "wifi-ad": 0.8243912337662338,
+            "conference-ad": 1.0,
+            "generic-risk": 0.933044733044733,
+            "early-weekday": 0.9594516594516594,
+            "evening-weekend": 0.894938684503902,
+            "generic-quiet": 0.84530474488783
+          },
+          "metrics": {
+            "retrieved": [
+              "conference-ad",
+              "weekday-ok",
+              "early-weekday",
+              "generic-risk",
+              "evening-ok"
+            ],
+            "precision_at_k": 0.2,
+            "recall_at_k": 0.2,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 0.2,
+            "missed_risks": [
+              "evening-risk",
+              "evening-weekend",
+              "weekend-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.2222222222222222
+          },
+          "entered": [
+            "evening-ok",
+            "weekday-ok"
+          ],
+          "exited": [
+            "evening-risk",
+            "evening-weekend"
+          ],
+          "new_relevant": [
+            "evening-ok"
+          ],
+          "displaced_relevant": [
+            "evening-risk",
+            "evening-weekend"
+          ],
+          "new_risks": [],
+          "displaced_risks": [
+            "evening-risk",
+            "evening-weekend"
+          ]
+        },
+        "1": {
+          "selected": [
+            "conference-ad",
+            "weekday-ok",
+            "early-weekday",
+            "evening-ok",
+            "early-ok"
+          ],
+          "scores": {
+            "early-ok": 0.9384615384615385,
+            "early-risk": 0.782051282051282,
+            "evening-ok": 0.953125,
+            "evening-risk": 0.8970588235294118,
+            "brief-ok": 0.9104477611940298,
+            "brief-risk": 0.8133333333333334,
+            "extended-ok": 0.8591549295774648,
+            "extended-risk": 0.8472222222222222,
+            "weekend-ok": 0.8243243243243243,
+            "weekend-risk": 0.8714285714285714,
+            "weekday-ok": 0.9838709677419355,
+            "weekday-risk": 0.8026315789473685,
+            "wifi-ad": 0.7922077922077922,
+            "conference-ad": 1.0,
+            "generic-risk": 0.9242424242424242,
+            "early-weekday": 0.9682539682539683,
+            "evening-weekend": 0.8840579710144928,
+            "generic-quiet": 0.8356164383561644
+          },
+          "metrics": {
+            "retrieved": [
+              "conference-ad",
+              "weekday-ok",
+              "early-weekday",
+              "evening-ok",
+              "early-ok"
+            ],
+            "precision_at_k": 0.2,
+            "recall_at_k": 0.2,
+            "risk_recall_at_k": 0.0,
+            "reciprocal_rank": 0.25,
+            "missed_risks": [
+              "evening-risk",
+              "evening-weekend",
+              "weekend-risk"
+            ],
+            "general_topic_risk_recall_at_5": 0.1111111111111111
+          },
+          "entered": [
+            "early-ok",
+            "evening-ok",
+            "weekday-ok"
+          ],
+          "exited": [
+            "evening-risk",
+            "evening-weekend",
+            "generic-risk"
+          ],
+          "new_relevant": [
+            "evening-ok"
+          ],
+          "displaced_relevant": [
+            "evening-risk",
+            "evening-weekend"
+          ],
+          "new_risks": [],
+          "displaced_risks": [
+            "evening-risk",
+            "evening-weekend",
+            "generic-risk"
+          ]
+        }
+      },
+      "theme_vector": {
+        "retrieved": [
+          "early-weekday",
+          "generic-risk",
+          "evening-risk",
+          "brief-risk",
+          "early-ok"
+        ],
+        "precision_at_k": 0.2,
+        "recall_at_k": 0.2,
+        "risk_recall_at_k": 0.3333333333333333,
+        "reciprocal_rank": 0.3333333333333333,
+        "missed_risks": [
+          "evening-weekend",
+          "weekend-risk"
+        ],
+        "general_topic_risk_recall_at_5": 0.4444444444444444
+      }
+    }
+  ],
+  "summary": {
+    "0": {
+      "precision_at_k": 0.2,
+      "recall_at_k": 0.26666666666666666,
+      "risk_recall_at_k": 0.3333333333333333,
+      "general_topic_risk_recall_at_5": 0.4083333333333333,
+      "cases_losing_risks": 5,
+      "cases_recall_down": 2
+    },
+    "0.2": {
+      "precision_at_k": 0.25,
+      "recall_at_k": 0.3333333333333333,
+      "risk_recall_at_k": 0.5,
+      "general_topic_risk_recall_at_5": 0.49722222222222223,
+      "cases_losing_risks": 0,
+      "cases_recall_down": 0
+    },
+    "0.5": {
+      "precision_at_k": 0.4,
+      "recall_at_k": 0.5666666666666667,
+      "risk_recall_at_k": 0.5208333333333334,
+      "general_topic_risk_recall_at_5": 0.45069444444444445,
+      "cases_losing_risks": 3,
+      "cases_recall_down": 1
+    },
+    "0.8": {
+      "precision_at_k": 0.4,
+      "recall_at_k": 0.5499999999999999,
+      "risk_recall_at_k": 0.4166666666666667,
+      "general_topic_risk_recall_at_5": 0.32430555555555557,
+      "cases_losing_risks": 7,
+      "cases_recall_down": 1
+    },
+    "1": {
+      "precision_at_k": 0.425,
+      "recall_at_k": 0.5916666666666667,
+      "risk_recall_at_k": 0.5416666666666666,
+      "general_topic_risk_recall_at_5": 0.3354166666666667,
+      "cases_losing_risks": 7,
+      "cases_recall_down": 1
+    }
+  },
+  "theme_vector_summary": {
+    "precision_at_k": 0.3,
+    "recall_at_k": 0.4,
+    "risk_recall_at_k": 0.5208333333333334,
+    "general_topic_risk_recall_at_5": 0.5986111111111111
+  },
+  "provenance": {
+    "trace_sha256": "800adda23cd3e79d8590f051d0a009f348959d0576ba05ff3100b6cd31c053e7",
+    "corpus_sha256": "0a2f34e0c9f2ceb3dfd163872b72d492f8ecd6689b3152f04e699904cad3f2a8",
+    "analysis_sha256": "0807bd8bac23276f57cb281dacb6b17e9d3736b621d900d2e5178afbbf588c6a",
+    "trace_file": "fusion-result-20261120T011907-b8d14e.json"
+  },
+  "resources": {
+    "peak_rss_mib": 25.703125,
+    "memory_budget_mib": 256,
+    "max_seconds": 30,
+    "live_calls": 0
+  }
+}

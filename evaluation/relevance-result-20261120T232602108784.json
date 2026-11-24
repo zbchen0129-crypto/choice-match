@@ -1,0 +1,347 @@
+{
+  "status": "stopped",
+  "label_origin": "assistant-authored synthetic labels; new cases frozen before v2 calls, not independent human validation",
+  "hashes": {
+    "evaluation/relevance_v2.json": "1bf91c2d276b4e9b4750db439a68ab1a58fcc4fcdef8ecc153f849fe45097ada",
+    "relevance.py": "2beed845e1186c0d5825f8624c994b41584f5bef3593822ab22659768a3e190c",
+    "evaluate_relevance.py": "f2450211014b0e719ad3cb5ca405e6c33f24094d322bd5216f2c6d6663ea0be7",
+    "model.py": "191718e3ad0254226614dad6592e43ea724a34923051d1b28c9287fab1001e91"
+  },
+  "protocol": {
+    "max_calls": 4,
+    "max_rss_mib": 256,
+    "max_seconds": 180,
+    "case_id": null,
+    "quote_mode": "source_text",
+    "scope": "synthetic diagnostic evaluation",
+    "gate": "All risks retained; all distractors identified; no partial evidence labeled specific. Diagnostic only even if passed.",
+    "production_default_changed": false
+  },
+  "calls": 4,
+  "cases": [
+    {
+      "id": "dawn-session",
+      "assessments": [
+        {
+          "source_id": "dawn-session-0",
+          "relevance": "mention_only",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Fiber internet speed is advertised but no direct evidence of video call performance or uninterrupted duration.",
+          "source_text": "The apartment listing advertises fiber internet at 500 Mbps; no video meetings were tested.",
+          "text_origin": "local_full_source"
+        },
+        {
+          "source_id": "dawn-session-1",
+          "relevance": "evidence",
+          "direction": "support",
+          "coverage": "specific",
+          "reason": "Explicit successful video meeting from 4 am to 7 am, lasting three hours without interruption.",
+          "source_text": "In this apartment I completed a three-hour video meeting from 4 am to 7 am without interruption on Monday.",
+          "text_origin": "local_full_source"
+        },
+        {
+          "source_id": "dawn-session-2",
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "partial",
+          "reason": "Video meetings froze repeatedly around 6 am and did not test full three hours; indicates risk of interruption during requested time.",
+          "source_text": "My video meetings in this unit froze repeatedly around 6 am. I did not test a full three-hour session.",
+          "text_origin": "local_full_source"
+        },
+        {
+          "source_id": "dawn-session-3",
+          "relevance": "unrelated",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Information about a nearby hotel's meeting rooms is unrelated to this apartment's video call performance.",
+          "source_text": "A hotel two blocks away rents meeting rooms with stable conferencing connections.",
+          "text_origin": "local_full_source"
+        }
+      ],
+      "expected": {
+        "dawn-session-0": {
+          "relevance": "mention_only",
+          "direction": "none",
+          "coverage": "none"
+        },
+        "dawn-session-1": {
+          "relevance": "evidence",
+          "direction": "support",
+          "coverage": "specific"
+        },
+        "dawn-session-2": {
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "partial"
+        },
+        "dawn-session-3": {
+          "relevance": "unrelated",
+          "direction": "none",
+          "coverage": "none"
+        }
+      }
+    },
+    {
+      "id": "afternoon-rest",
+      "assessments": [
+        {
+          "source_id": "afternoon-rest-0",
+          "relevance": "evidence",
+          "direction": "support",
+          "coverage": "specific",
+          "reason": "Explicitly states the apartment was silent during requested hours on Sunday, supporting quiet for nap at 2-4 pm on Sundays.",
+          "source_text": "During my Sunday stay, the apartment was silent from 2 pm to 4 pm. This describes that visit only.",
+          "text_origin": "local_full_source"
+        },
+        {
+          "source_id": "afternoon-rest-1",
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "specific",
+          "reason": "Explicit mention of construction noise inside the apartment waking occupant at 3 pm on Sunday, directly contradicting need for quiet during 2-4 pm nap.",
+          "source_text": "Sunday construction noise inside this apartment woke me at 3 pm.",
+          "text_origin": "local_full_source"
+        },
+        {
+          "source_id": "afternoon-rest-2",
+          "relevance": "unrelated",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Silent nearby reading room does not describe apartment's quietness; irrelevant to apartment quiet topic.",
+          "source_text": "The nearby reading room is silent on Sunday afternoons; this says nothing about the apartment.",
+          "text_origin": "local_full_source"
+        },
+        {
+          "source_id": "afternoon-rest-3",
+          "relevance": "mention_only",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Manager reports no noise complaints but lacks direct measurements or observations; only indirect mention, insufficient evidence for quiet.",
+          "source_text": "The manager says nobody has complained about apartment noise. No observations of sound levels were provided.",
+          "text_origin": "local_full_source"
+        }
+      ],
+      "expected": {
+        "afternoon-rest-0": {
+          "relevance": "evidence",
+          "direction": "support",
+          "coverage": "specific"
+        },
+        "afternoon-rest-1": {
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "partial"
+        },
+        "afternoon-rest-2": {
+          "relevance": "unrelated",
+          "direction": "none",
+          "coverage": "none"
+        },
+        "afternoon-rest-3": {
+          "relevance": "mention_only",
+          "direction": "none",
+          "coverage": "none"
+        }
+      }
+    },
+    {
+      "id": "mandarin-meetings",
+      "assessments": [
+        {
+          "source_id": "mandarin-meetings-0",
+          "relevance": "evidence",
+          "direction": "mixed",
+          "coverage": "specific",
+          "reason": "Reports on video calls exactly during 9-11pm last week with both smooth and dropped connections, directly addressing requested timing and duration.",
+          "source_text": "在这套公寓里，上周一晚九点到十一点的视频会议很顺畅，但周二同一时间断线三次。",
+          "text_origin": "local_full_source"
+        },
+        {
+          "source_id": "mandarin-meetings-1",
+          "relevance": "uncertain",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Mentions video call disconnections but location ambiguous between this apartment or nearby hotel, unclear attribution.",
+          "source_text": "评论写着“视频会议总掉线”，但没有说是这套公寓还是对面旅馆，无法确定。",
+          "text_origin": "local_full_source"
+        },
+        {
+          "source_id": "mandarin-meetings-2",
+          "relevance": "mention_only",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Mentions presence of Wi-Fi 6 router but no experience of video calls, so no evidence of performance during video calls.",
+          "source_text": "本公寓配有 Wi-Fi 6 路由器，尚无视频会议使用记录。",
+          "text_origin": "local_full_source"
+        },
+        {
+          "source_id": "mandarin-meetings-3",
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "partial",
+          "reason": "Reports frequent video call drops at 10am but no tests at night; partial timing coverage, indicates risk for video call stability.",
+          "source_text": "在这套公寓住的时候，我上午十点的视频会议常常掉线；晚上没有测试过。",
+          "text_origin": "local_full_source"
+        }
+      ],
+      "expected": {
+        "mandarin-meetings-0": {
+          "relevance": "evidence",
+          "direction": "mixed",
+          "coverage": "specific"
+        },
+        "mandarin-meetings-1": {
+          "relevance": "uncertain",
+          "direction": "none",
+          "coverage": "uncertain"
+        },
+        "mandarin-meetings-2": {
+          "relevance": "mention_only",
+          "direction": "none",
+          "coverage": "none"
+        },
+        "mandarin-meetings-3": {
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "partial"
+        }
+      }
+    }
+  ],
+  "model": "gpt-4.1-mini",
+  "active_case": "weekday-noise",
+  "raw_outputs": [
+    {
+      "assessments": [
+        {
+          "source_id": "dawn-session-0",
+          "relevance": "mention_only",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Fiber internet speed is advertised but no direct evidence of video call performance or uninterrupted duration."
+        },
+        {
+          "source_id": "dawn-session-1",
+          "relevance": "evidence",
+          "direction": "support",
+          "coverage": "specific",
+          "reason": "Explicit successful video meeting from 4 am to 7 am, lasting three hours without interruption."
+        },
+        {
+          "source_id": "dawn-session-2",
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "partial",
+          "reason": "Video meetings froze repeatedly around 6 am and did not test full three hours; indicates risk of interruption during requested time."
+        },
+        {
+          "source_id": "dawn-session-3",
+          "relevance": "unrelated",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Information about a nearby hotel's meeting rooms is unrelated to this apartment's video call performance."
+        }
+      ]
+    },
+    {
+      "assessments": [
+        {
+          "source_id": "afternoon-rest-0",
+          "relevance": "evidence",
+          "direction": "support",
+          "coverage": "specific",
+          "reason": "Explicitly states the apartment was silent during requested hours on Sunday, supporting quiet for nap at 2-4 pm on Sundays."
+        },
+        {
+          "source_id": "afternoon-rest-1",
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "specific",
+          "reason": "Explicit mention of construction noise inside the apartment waking occupant at 3 pm on Sunday, directly contradicting need for quiet during 2-4 pm nap."
+        },
+        {
+          "source_id": "afternoon-rest-2",
+          "relevance": "unrelated",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Silent nearby reading room does not describe apartment's quietness; irrelevant to apartment quiet topic."
+        },
+        {
+          "source_id": "afternoon-rest-3",
+          "relevance": "mention_only",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Manager reports no noise complaints but lacks direct measurements or observations; only indirect mention, insufficient evidence for quiet."
+        }
+      ]
+    },
+    {
+      "assessments": [
+        {
+          "source_id": "mandarin-meetings-0",
+          "relevance": "evidence",
+          "direction": "mixed",
+          "coverage": "specific",
+          "reason": "Reports on video calls exactly during 9-11pm last week with both smooth and dropped connections, directly addressing requested timing and duration."
+        },
+        {
+          "source_id": "mandarin-meetings-1",
+          "relevance": "uncertain",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Mentions video call disconnections but location ambiguous between this apartment or nearby hotel, unclear attribution."
+        },
+        {
+          "source_id": "mandarin-meetings-2",
+          "relevance": "mention_only",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Mentions presence of Wi-Fi 6 router but no experience of video calls, so no evidence of performance during video calls."
+        },
+        {
+          "source_id": "mandarin-meetings-3",
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "partial",
+          "reason": "Reports frequent video call drops at 10am but no tests at night; partial timing coverage, indicates risk for video call stability."
+        }
+      ]
+    },
+    {
+      "assessments": [
+        {
+          "source_id": "weekday-noise-0",
+          "relevance": "unrelated",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "The source discusses noise in a coworking office across town, unrelated to this apartment's weekday evening quietness."
+        },
+        {
+          "source_id": "weekday-noise-1",
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "partial",
+          "reason": "Reports specific times on a Tuesday: quiet at 7 pm but loud at 9 pm due to hallway music; covers requested times partially and indicates noise risk."
+        },
+        {
+          "source_id": "weekday-noise-2",
+          "relevance": "uncertain",
+          "direction": "risk",
+          "coverage": "uncertain",
+          "reason": "Mentions noisy evenings but does not specify apartment or timing; ambiguous attribution and timing limit certainty."
+        },
+        {
+          "source_id": "weekday-noise-3",
+          "relevance": "evidence",
+          "direction": "none",
+          "coverage": "none",
+          "reason": "Reports loud parties on weekend evenings with no weekday data, thus evidence unrelated to requested weekday evening quiet."
+        }
+      ]
+    }
+  ],
+  "error_type": "ValueError",
+  "peak_rss_mib": 33.296875,
+  "elapsed_seconds": 11.622039041947573
+}

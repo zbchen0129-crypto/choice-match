@@ -1,0 +1,27 @@
+{
+ "version":"original-query-v1",
+ "scope":"Assistant-authored synthetic development corpus, frozen before first run; no independent human annotation. Scenario relevance measures explicit use-context evidence, not general topic relevance or suitability.",
+ "documents":[
+  {"id":"day-good","candidate":"A","text":"I used the apartment internet for work video meetings between 10 am and noon for a week, without disconnections."},
+  {"id":"day-risk","candidate":"B","text":"In this unit the internet repeatedly disconnected during weekday afternoon video conferences."},
+  {"id":"night-good","candidate":"C","text":"During my stay I held remote meetings from 1 am to 5 am in the apartment. The connection stayed up throughout those four hours."},
+  {"id":"night-risk","candidate":"D","text":"The apartment router restarts every night at 2 am. My overnight video meetings were interrupted by this outage."},
+  {"id":"short-good","candidate":"E","text":"I completed several ten-minute video calls from this apartment without losing the connection. I did not try longer calls."},
+  {"id":"short-risk","candidate":"F","text":"Even a ten-minute video meeting from this unit disconnected twice. The internet was unreliable during my stay."},
+  {"id":"long-good","candidate":"G","text":"I ran four-hour video conferences from the apartment with no interruption. This report does not specify the time of day."},
+  {"id":"long-risk","candidate":"H","text":"The connection works for short calls, but after two hours in a continuous video meeting it disconnects and needs a restart."},
+  {"id":"amenity","candidate":"I","text":"Apartment amenities include Wi-Fi internet access. No measured performance or meeting experience is provided."},
+  {"id":"distractor","candidate":"J","text":"An international conference center nearby rents rooms by the hour. This says nothing about the apartment internet."},
+  {"id":"night-cn","candidate":"K","text":"住这套房时我凌晨开会，画面频繁卡住，最后只能改用手机流量。"},
+  {"id":"quiet","candidate":"L","text":"The bedroom was quiet at night. This account gives no information about the internet connection."}
+ ],
+ "cases":[
+  {"id":"day","query":"我白天开视频会议，希望网络稳定。","relevant":["day-good","day-risk"],"risks":["day-risk"]},
+  {"id":"night","query":"我凌晨开视频会议，希望网络稳定。","relevant":["night-good","night-risk","night-cn"],"risks":["night-risk","night-cn"]},
+  {"id":"short","query":"我每次开十分钟视频会议，希望网络稳定。","relevant":["short-good","short-risk","long-risk"],"risks":["short-risk"]},
+  {"id":"long","query":"我每次连续开四小时视频会议，希望网络稳定。","relevant":["long-good","long-risk","night-good","short-good"],"risks":["long-risk"]},
+  {"id":"night-four-hours","query":"我每天凌晨连续开四小时跨国视频会议，希望网络稳定。","relevant":["night-good","night-risk","night-cn","long-good","long-risk"],"risks":["night-risk","night-cn","long-risk"]},
+  {"id":"night-full","query":"我要至少两卧室，允许养猫，每月总费用不超过3500美元。我每天凌晨连续开四小时跨国视频会议，希望网络稳定。","relevant":["night-good","night-risk","night-cn","long-good","long-risk"],"risks":["night-risk","night-cn","long-risk"]}
+ ],
+ "label_notes":"Short-good explicitly states longer calls were not tested, so it is relevant to long-call evidence limitations. Long-risk explicitly distinguishes short versus long connections. Night/full cases accept evidence about either stated context dimension, not a claim that all dimensions or cross-border performance are verified. All candidates share identical structured filters; each has one short source, isolating ranking from context-length effects."
+}

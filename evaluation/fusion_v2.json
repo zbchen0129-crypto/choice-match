@@ -1,0 +1,34 @@
+{
+ "version":"fusion-v2-english-context",
+ "documents":[
+  {"id":"early-ok","candidate":"A","text":"During my stay in this apartment, I joined work calls before sunrise, around five in the morning. Audio and video stayed connected."},
+  {"id":"early-risk","candidate":"B","text":"The building gateway is rebooted before sunrise at five each morning. My work calls from the apartment lost their connection at that time."},
+  {"id":"evening-ok","candidate":"C","text":"I used this unit for online work meetings after dinner, between seven and nine in the evening, without disconnections."},
+  {"id":"evening-risk","candidate":"D","text":"In this apartment the internet became congested after dinner. My evening video calls froze repeatedly."},
+  {"id":"brief-ok","candidate":"E","text":"I tried several brief fifteen-minute video calls from this rental. They stayed connected, but I have no experience with longer sessions here."},
+  {"id":"brief-risk","candidate":"F","text":"The wireless connection in the rental dropped twice during a fifteen-minute call with my team."},
+  {"id":"extended-ok","candidate":"G","text":"I completed a continuous six-hour remote training session from the apartment with working audio and video throughout."},
+  {"id":"extended-risk","candidate":"H","text":"A session timeout on this property's connection disconnects my video meeting after three hours; short meetings finish normally."},
+  {"id":"weekend-ok","candidate":"I","text":"I stayed in the bedroom on Saturday and Sunday and heard no neighboring celebrations while sleeping."},
+  {"id":"weekend-risk","candidate":"J","text":"On Saturday and Sunday nights, celebrations next door kept me awake in this apartment. The noise continued past midnight."},
+  {"id":"weekday-ok","candidate":"K","text":"During my Monday-through-Thursday stay the apartment bedroom was quiet overnight. I was not there on the weekend."},
+  {"id":"weekday-risk","candidate":"L","text":"A neighboring loading dock woke me in this apartment before dawn every Monday through Thursday. I have no weekend observations."},
+  {"id":"wifi-ad","candidate":"M","text":"This apartment advertises internet, Wi-Fi and a desk. The advertisement gives no call reliability, duration or time-of-day observations."},
+  {"id":"conference-ad","candidate":"N","text":"The apartment is near a conference center whose evening program includes quiet study hours. This is not information about the rental's network or sound insulation."},
+  {"id":"generic-risk","candidate":"O","text":"My internet connection in this apartment was unreliable during video meetings. I did not record the time or the length of the calls."},
+  {"id":"early-weekday","candidate":"P","text":"On a weekday before sunrise, traffic noise in this bedroom disrupted my video meeting even though the connection stayed up."},
+  {"id":"evening-weekend","candidate":"Q","text":"After dinner on Saturday, loud music from the next unit interrupted my work call in this apartment; the network itself remained connected."},
+  {"id":"generic-quiet","candidate":"R","text":"The landlord describes the apartment as quiet. No resident observations or time-specific details are supplied."}
+ ],
+ "cases":[
+  {"id":"before-sunrise","query":"I need a rental for reliable video meetings before sunrise at five in the morning.","preferences":{"video_calls":3},"relevant":["early-ok","early-risk","early-weekday"],"risks":["early-risk"]},
+  {"id":"after-dinner","query":"I need a rental for reliable video meetings after dinner between seven and nine in the evening.","preferences":{"video_calls":3},"relevant":["evening-ok","evening-risk","evening-weekend"],"risks":["evening-risk"]},
+  {"id":"fifteen-minutes","query":"My remote team check-ins last fifteen minutes. I need a reliable video connection in the rental.","preferences":{"video_calls":3},"relevant":["brief-ok","brief-risk","extended-risk"],"risks":["brief-risk"]},
+  {"id":"six-hours","query":"I attend uninterrupted six-hour remote training sessions and need the rental connection to keep audio and video working.","preferences":{"video_calls":3},"relevant":["extended-ok","extended-risk","brief-ok"],"risks":["extended-risk"]},
+  {"id":"weekend-sleep","query":"I sleep in the apartment on Saturday and Sunday nights and want quiet surroundings.","preferences":{"quiet":3},"relevant":["weekend-ok","weekend-risk","weekday-ok","weekday-risk","evening-weekend"],"risks":["weekend-risk","evening-weekend"]},
+  {"id":"weekday-sleep","query":"I sleep in the apartment Monday through Thursday and want quiet surroundings before dawn.","preferences":{"quiet":3},"relevant":["weekday-ok","weekday-risk","early-weekday"],"risks":["weekday-risk","early-weekday"]},
+  {"id":"weekday-early-work","query":"On weekdays before sunrise I need reliable video meetings and a quiet room in the rental.","preferences":{"video_calls":3,"quiet":2},"relevant":["early-ok","early-risk","weekday-ok","weekday-risk","early-weekday"],"risks":["early-risk","weekday-risk","early-weekday"]},
+  {"id":"weekend-evening-work","query":"On Saturday evenings after dinner I need reliable video meetings and a quiet room in the rental.","preferences":{"video_calls":3,"quiet":2},"relevant":["evening-ok","evening-risk","weekend-ok","weekend-risk","evening-weekend"],"risks":["evening-risk","weekend-risk","evening-weekend"]}
+ ],
+ "label_notes":"Scenario-relevant includes explicit evidence about a requested context dimension or an explicit observation limit for that dimension. Weekday sources explicitly say weekends were not observed, so they inform the weekend evidence gap. Brief-ok explicitly says longer sessions were not tested. Extended-risk describes both short-session normal operation and long-session failure. Early-weekday/evening-weekend report connected network plus noise: they are relevant to network cases but count as risk only when quiet is requested. Generic network risk is topic-relevant but lacks context specificity, so excluded from scenario labels; this is not a claim it should be hidden from the actual user. Multi-topic labels are a union of relevant context dimensions, not proof of meeting every constraint."
+}

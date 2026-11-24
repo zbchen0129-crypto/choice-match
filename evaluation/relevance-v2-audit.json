@@ -1,0 +1,274 @@
+{
+  "scope": "Offline inspection of raw outputs including the rejected fourth batch; not a successful pipeline evaluation. Original labels unchanged.",
+  "report_sha256": "b7955f07d9c6a0440faf55ae29d8486fa6eee480a591c8aa6247e7c0a12517b9",
+  "corpus_sha256": "1bf91c2d276b4e9b4750db439a68ab1a58fcc4fcdef8ecc153f849fe45097ada",
+  "live_calls": 0,
+  "production_default_changed": false,
+  "pipeline_batches_accepted": 3,
+  "pipeline_batches_total": 4,
+  "raw_label_matches": 11,
+  "raw_labels_total": 16,
+  "raw_risks_retained": 5,
+  "risk_total": 6,
+  "raw_distractors_identified": 6,
+  "distractor_total": 6,
+  "rows": [
+    {
+      "source_id": "dawn-session-0",
+      "expected": {
+        "relevance": "mention_only",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "actual": {
+        "relevance": "mention_only",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "mismatched_fields": [],
+      "reason": "Fiber internet speed is advertised but no direct evidence of video call performance or uninterrupted duration."
+    },
+    {
+      "source_id": "dawn-session-1",
+      "expected": {
+        "relevance": "evidence",
+        "direction": "support",
+        "coverage": "specific"
+      },
+      "actual": {
+        "relevance": "evidence",
+        "direction": "support",
+        "coverage": "specific"
+      },
+      "mismatched_fields": [],
+      "reason": "Explicit successful video meeting from 4 am to 7 am, lasting three hours without interruption."
+    },
+    {
+      "source_id": "dawn-session-2",
+      "expected": {
+        "relevance": "evidence",
+        "direction": "risk",
+        "coverage": "partial"
+      },
+      "actual": {
+        "relevance": "evidence",
+        "direction": "risk",
+        "coverage": "partial"
+      },
+      "mismatched_fields": [],
+      "reason": "Video meetings froze repeatedly around 6 am and did not test full three hours; indicates risk of interruption during requested time."
+    },
+    {
+      "source_id": "dawn-session-3",
+      "expected": {
+        "relevance": "unrelated",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "actual": {
+        "relevance": "unrelated",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "mismatched_fields": [],
+      "reason": "Information about a nearby hotel's meeting rooms is unrelated to this apartment's video call performance."
+    },
+    {
+      "source_id": "afternoon-rest-0",
+      "expected": {
+        "relevance": "evidence",
+        "direction": "support",
+        "coverage": "specific"
+      },
+      "actual": {
+        "relevance": "evidence",
+        "direction": "support",
+        "coverage": "specific"
+      },
+      "mismatched_fields": [],
+      "reason": "Explicitly states the apartment was silent during requested hours on Sunday, supporting quiet for nap at 2-4 pm on Sundays."
+    },
+    {
+      "source_id": "afternoon-rest-1",
+      "expected": {
+        "relevance": "evidence",
+        "direction": "risk",
+        "coverage": "partial"
+      },
+      "actual": {
+        "relevance": "evidence",
+        "direction": "risk",
+        "coverage": "specific"
+      },
+      "mismatched_fields": [
+        "coverage"
+      ],
+      "reason": "Explicit mention of construction noise inside the apartment waking occupant at 3 pm on Sunday, directly contradicting need for quiet during 2-4 pm nap."
+    },
+    {
+      "source_id": "afternoon-rest-2",
+      "expected": {
+        "relevance": "unrelated",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "actual": {
+        "relevance": "unrelated",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "mismatched_fields": [],
+      "reason": "Silent nearby reading room does not describe apartment's quietness; irrelevant to apartment quiet topic."
+    },
+    {
+      "source_id": "afternoon-rest-3",
+      "expected": {
+        "relevance": "mention_only",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "actual": {
+        "relevance": "mention_only",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "mismatched_fields": [],
+      "reason": "Manager reports no noise complaints but lacks direct measurements or observations; only indirect mention, insufficient evidence for quiet."
+    },
+    {
+      "source_id": "mandarin-meetings-0",
+      "expected": {
+        "relevance": "evidence",
+        "direction": "mixed",
+        "coverage": "specific"
+      },
+      "actual": {
+        "relevance": "evidence",
+        "direction": "mixed",
+        "coverage": "specific"
+      },
+      "mismatched_fields": [],
+      "reason": "Reports on video calls exactly during 9-11pm last week with both smooth and dropped connections, directly addressing requested timing and duration."
+    },
+    {
+      "source_id": "mandarin-meetings-1",
+      "expected": {
+        "relevance": "uncertain",
+        "direction": "none",
+        "coverage": "uncertain"
+      },
+      "actual": {
+        "relevance": "uncertain",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "mismatched_fields": [
+        "coverage"
+      ],
+      "reason": "Mentions video call disconnections but location ambiguous between this apartment or nearby hotel, unclear attribution."
+    },
+    {
+      "source_id": "mandarin-meetings-2",
+      "expected": {
+        "relevance": "mention_only",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "actual": {
+        "relevance": "mention_only",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "mismatched_fields": [],
+      "reason": "Mentions presence of Wi-Fi 6 router but no experience of video calls, so no evidence of performance during video calls."
+    },
+    {
+      "source_id": "mandarin-meetings-3",
+      "expected": {
+        "relevance": "evidence",
+        "direction": "risk",
+        "coverage": "partial"
+      },
+      "actual": {
+        "relevance": "evidence",
+        "direction": "risk",
+        "coverage": "partial"
+      },
+      "mismatched_fields": [],
+      "reason": "Reports frequent video call drops at 10am but no tests at night; partial timing coverage, indicates risk for video call stability."
+    },
+    {
+      "source_id": "weekday-noise-0",
+      "expected": {
+        "relevance": "unrelated",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "actual": {
+        "relevance": "unrelated",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "mismatched_fields": [],
+      "reason": "The source discusses noise in a coworking office across town, unrelated to this apartment's weekday evening quietness."
+    },
+    {
+      "source_id": "weekday-noise-1",
+      "expected": {
+        "relevance": "evidence",
+        "direction": "mixed",
+        "coverage": "partial"
+      },
+      "actual": {
+        "relevance": "evidence",
+        "direction": "risk",
+        "coverage": "partial"
+      },
+      "mismatched_fields": [
+        "direction"
+      ],
+      "reason": "Reports specific times on a Tuesday: quiet at 7 pm but loud at 9 pm due to hallway music; covers requested times partially and indicates noise risk."
+    },
+    {
+      "source_id": "weekday-noise-2",
+      "expected": {
+        "relevance": "uncertain",
+        "direction": "none",
+        "coverage": "uncertain"
+      },
+      "actual": {
+        "relevance": "uncertain",
+        "direction": "risk",
+        "coverage": "uncertain"
+      },
+      "mismatched_fields": [
+        "direction"
+      ],
+      "reason": "Mentions noisy evenings but does not specify apartment or timing; ambiguous attribution and timing limit certainty."
+    },
+    {
+      "source_id": "weekday-noise-3",
+      "expected": {
+        "relevance": "evidence",
+        "direction": "risk",
+        "coverage": "partial"
+      },
+      "actual": {
+        "relevance": "evidence",
+        "direction": "none",
+        "coverage": "none"
+      },
+      "mismatched_fields": [
+        "direction",
+        "coverage"
+      ],
+      "reason": "Reports loud parties on weekend evenings with no weekday data, thus evidence unrelated to requested weekday evening quiet."
+    }
+  ],
+  "interpretation_notes": [
+    "A counterexample at 3 pm refutes all-interval quiet without observing the full interval. The original partial label is preserved, but coverage semantics require independent review.",
+    "Quiet at 7 pm and noisy at 9 pm was labeled risk instead of mixed. Full source is locally retained, but classification omitted the positive direction.",
+    "Ambiguous attribution labels differ on direction and coverage; uncertainty must never be promoted into candidate-specific fact.",
+    "Weekend risk received evidence/none/none and was rejected. No filtering is enabled."
+  ]
+}

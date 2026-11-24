@@ -1,0 +1,666 @@
+{
+  "scope": "Fictional offline demonstration; no actual human review or model assessment",
+  "original_query": "不能接受已有视频会议掉线记录的房源。",
+  "before": {
+    "eligible": [
+      {
+        "id": "A",
+        "name": "梧桐公寓（虚构）",
+        "synthetic": true,
+        "score": 3,
+        "historical": false,
+        "checks": [
+          {
+            "field": "bedrooms",
+            "status": "pass"
+          },
+          {
+            "field": "cats_allowed",
+            "status": "pass"
+          },
+          {
+            "field": "monthly_budget",
+            "status": "pass",
+            "known_lower_bound_cents": 340000,
+            "complete": true,
+            "items": [
+              {
+                "label": "rent",
+                "amount_cents": 320000,
+                "source_id": "A-DETAILS"
+              },
+              {
+                "label": "mandatory_monthly_fees",
+                "amount_cents": 20000,
+                "source_id": "A-DETAILS"
+              }
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "topic": "video_calls",
+            "status": "support",
+            "evidence": [
+              {
+                "topic": "video_calls",
+                "direction": "support",
+                "quote": "工作日视频会议没有掉线。",
+                "source_id": "A-R0",
+                "conditions": "仅为一位住客的工作日体验；没有测速",
+                "source": {
+                  "text": "工作日视频会议没有掉线。",
+                  "date": "2026-10-15",
+                  "type": "synthetic_resident_note"
+                }
+              }
+            ]
+          },
+          {
+            "topic": "quiet",
+            "status": "mixed",
+            "evidence": [
+              {
+                "topic": "quiet",
+                "direction": "risk",
+                "quote": "周五晚上听到楼下音乐。",
+                "source_id": "A-R1",
+                "conditions": "周五夜间，音量未知",
+                "source": {
+                  "text": "周五晚上听到楼下音乐。",
+                  "date": "2026-10-15",
+                  "type": "synthetic_resident_note"
+                }
+              },
+              {
+                "topic": "quiet",
+                "direction": "support",
+                "quote": "周一到周四晚上很安静。",
+                "source_id": "A-R2",
+                "conditions": "未住周末",
+                "source": {
+                  "text": "周一到周四晚上很安静。",
+                  "date": "2026-10-22",
+                  "type": "synthetic_resident_note"
+                }
+              }
+            ]
+          }
+        ],
+        "recommendation_status": "review_risks",
+        "evidence_summary": {
+          "support_weight": 5,
+          "risk_weight": 2,
+          "risk_topics": [
+            "quiet"
+          ],
+          "missing_topics": [],
+          "absence_of_risk_is_not_support": true
+        },
+        "exclusion_reasons": []
+      },
+      {
+        "id": "D",
+        "name": "湖畔公寓（虚构）",
+        "synthetic": true,
+        "score": -1,
+        "historical": false,
+        "checks": [
+          {
+            "field": "bedrooms",
+            "status": "pass"
+          },
+          {
+            "field": "cats_allowed",
+            "status": "pass"
+          },
+          {
+            "field": "monthly_budget",
+            "status": "pass",
+            "known_lower_bound_cents": 340000,
+            "complete": true,
+            "items": [
+              {
+                "label": "rent",
+                "amount_cents": 330000,
+                "source_id": "D-DETAILS"
+              },
+              {
+                "label": "mandatory_monthly_fees",
+                "amount_cents": 10000,
+                "source_id": "D-DETAILS"
+              }
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "topic": "video_calls",
+            "status": "risk",
+            "evidence": [
+              {
+                "topic": "video_calls",
+                "direction": "risk",
+                "quote": "两次视频会议掉线，改用手机热点。",
+                "source_id": "D-R1",
+                "conditions": "未核实原因或后续修复",
+                "source": {
+                  "text": "两次视频会议掉线，改用手机热点。",
+                  "date": "2026-10-20",
+                  "type": "synthetic_resident_note"
+                }
+              }
+            ]
+          },
+          {
+            "topic": "quiet",
+            "status": "support",
+            "evidence": [
+              {
+                "topic": "quiet",
+                "direction": "support",
+                "quote": "这次入住夜间很安静。",
+                "source_id": "D-R0",
+                "conditions": "一次主观经历",
+                "source": {
+                  "text": "这次入住夜间很安静。",
+                  "date": "2026-10-20",
+                  "type": "synthetic_resident_note"
+                }
+              }
+            ]
+          }
+        ],
+        "recommendation_status": "review_risks",
+        "evidence_summary": {
+          "support_weight": 2,
+          "risk_weight": 3,
+          "risk_topics": [
+            "video_calls"
+          ],
+          "missing_topics": [],
+          "absence_of_risk_is_not_support": true
+        },
+        "exclusion_reasons": []
+      }
+    ],
+    "needs_verification": [
+      {
+        "id": "C",
+        "name": "花园公寓（虚构）",
+        "synthetic": true,
+        "score": 2,
+        "historical": false,
+        "checks": [
+          {
+            "field": "bedrooms",
+            "status": "pass"
+          },
+          {
+            "field": "cats_allowed",
+            "status": "pass"
+          },
+          {
+            "field": "monthly_budget",
+            "status": "unknown",
+            "known_lower_bound_cents": 310000,
+            "complete": false,
+            "items": [
+              {
+                "label": "rent",
+                "amount_cents": 310000,
+                "source_id": "C-DETAILS"
+              },
+              {
+                "label": "mandatory_monthly_fees",
+                "amount_cents": null,
+                "source_id": "C-DETAILS"
+              }
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "topic": "video_calls",
+            "status": "unknown",
+            "evidence": []
+          },
+          {
+            "topic": "quiet",
+            "status": "support",
+            "evidence": [
+              {
+                "topic": "quiet",
+                "direction": "support",
+                "quote": "这次入住夜间很安静。",
+                "source_id": "C-R0",
+                "conditions": "一次主观经历，非当前保证",
+                "source": {
+                  "text": "这次入住夜间很安静。",
+                  "date": "2026-10-19",
+                  "type": "synthetic_resident_note"
+                }
+              }
+            ]
+          }
+        ],
+        "recommendation_status": "needs_information",
+        "evidence_summary": {
+          "support_weight": 2,
+          "risk_weight": 0,
+          "risk_topics": [],
+          "missing_topics": [
+            "video_calls"
+          ],
+          "absence_of_risk_is_not_support": true
+        },
+        "exclusion_reasons": []
+      }
+    ],
+    "excluded": [
+      {
+        "id": "B",
+        "name": "河岸公寓（虚构）",
+        "synthetic": true,
+        "score": 0,
+        "historical": false,
+        "checks": [
+          {
+            "field": "bedrooms",
+            "status": "pass"
+          },
+          {
+            "field": "cats_allowed",
+            "status": "fail"
+          },
+          {
+            "field": "monthly_budget",
+            "status": "pass",
+            "known_lower_bound_cents": 335000,
+            "complete": true,
+            "items": [
+              {
+                "label": "rent",
+                "amount_cents": 335000,
+                "source_id": "B-DETAILS"
+              },
+              {
+                "label": "mandatory_monthly_fees",
+                "amount_cents": 0,
+                "source_id": "B-DETAILS"
+              }
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "topic": "video_calls",
+            "status": "unknown",
+            "evidence": []
+          },
+          {
+            "topic": "quiet",
+            "status": "unknown",
+            "evidence": []
+          }
+        ],
+        "recommendation_status": "excluded",
+        "evidence_summary": {
+          "support_weight": 0,
+          "risk_weight": 0,
+          "risk_topics": [],
+          "missing_topics": [
+            "video_calls",
+            "quiet"
+          ],
+          "absence_of_risk_is_not_support": true
+        },
+        "exclusion_reasons": [
+          {
+            "kind": "hard_condition",
+            "field": "cats_allowed"
+          }
+        ]
+      }
+    ]
+  },
+  "after": {
+    "eligible": [
+      {
+        "id": "A",
+        "name": "梧桐公寓（虚构）",
+        "synthetic": true,
+        "score": 3,
+        "historical": false,
+        "checks": [
+          {
+            "field": "bedrooms",
+            "status": "pass"
+          },
+          {
+            "field": "cats_allowed",
+            "status": "pass"
+          },
+          {
+            "field": "monthly_budget",
+            "status": "pass",
+            "known_lower_bound_cents": 340000,
+            "complete": true,
+            "items": [
+              {
+                "label": "rent",
+                "amount_cents": 320000,
+                "source_id": "A-DETAILS"
+              },
+              {
+                "label": "mandatory_monthly_fees",
+                "amount_cents": 20000,
+                "source_id": "A-DETAILS"
+              }
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "topic": "video_calls",
+            "status": "support",
+            "evidence": [
+              {
+                "topic": "video_calls",
+                "direction": "support",
+                "quote": "工作日视频会议没有掉线。",
+                "source_id": "A-R0",
+                "conditions": "仅为一位住客的工作日体验；没有测速",
+                "source": {
+                  "text": "工作日视频会议没有掉线。",
+                  "date": "2026-10-15",
+                  "type": "synthetic_resident_note"
+                }
+              }
+            ]
+          },
+          {
+            "topic": "quiet",
+            "status": "mixed",
+            "evidence": [
+              {
+                "topic": "quiet",
+                "direction": "risk",
+                "quote": "周五晚上听到楼下音乐。",
+                "source_id": "A-R1",
+                "conditions": "周五夜间，音量未知",
+                "source": {
+                  "text": "周五晚上听到楼下音乐。",
+                  "date": "2026-10-15",
+                  "type": "synthetic_resident_note"
+                }
+              },
+              {
+                "topic": "quiet",
+                "direction": "support",
+                "quote": "周一到周四晚上很安静。",
+                "source_id": "A-R2",
+                "conditions": "未住周末",
+                "source": {
+                  "text": "周一到周四晚上很安静。",
+                  "date": "2026-10-22",
+                  "type": "synthetic_resident_note"
+                }
+              }
+            ]
+          }
+        ],
+        "recommendation_status": "review_risks",
+        "evidence_summary": {
+          "support_weight": 5,
+          "risk_weight": 2,
+          "risk_topics": [
+            "quiet"
+          ],
+          "missing_topics": [],
+          "absence_of_risk_is_not_support": true
+        },
+        "exclusion_reasons": []
+      }
+    ],
+    "needs_verification": [
+      {
+        "id": "C",
+        "name": "花园公寓（虚构）",
+        "synthetic": true,
+        "score": 2,
+        "historical": false,
+        "checks": [
+          {
+            "field": "bedrooms",
+            "status": "pass"
+          },
+          {
+            "field": "cats_allowed",
+            "status": "pass"
+          },
+          {
+            "field": "monthly_budget",
+            "status": "unknown",
+            "known_lower_bound_cents": 310000,
+            "complete": false,
+            "items": [
+              {
+                "label": "rent",
+                "amount_cents": 310000,
+                "source_id": "C-DETAILS"
+              },
+              {
+                "label": "mandatory_monthly_fees",
+                "amount_cents": null,
+                "source_id": "C-DETAILS"
+              }
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "topic": "video_calls",
+            "status": "unknown",
+            "evidence": []
+          },
+          {
+            "topic": "quiet",
+            "status": "support",
+            "evidence": [
+              {
+                "topic": "quiet",
+                "direction": "support",
+                "quote": "这次入住夜间很安静。",
+                "source_id": "C-R0",
+                "conditions": "一次主观经历，非当前保证",
+                "source": {
+                  "text": "这次入住夜间很安静。",
+                  "date": "2026-10-19",
+                  "type": "synthetic_resident_note"
+                }
+              }
+            ]
+          }
+        ],
+        "recommendation_status": "needs_information",
+        "evidence_summary": {
+          "support_weight": 2,
+          "risk_weight": 0,
+          "risk_topics": [],
+          "missing_topics": [
+            "video_calls"
+          ],
+          "absence_of_risk_is_not_support": true
+        },
+        "exclusion_reasons": []
+      }
+    ],
+    "excluded": [
+      {
+        "id": "B",
+        "name": "河岸公寓（虚构）",
+        "synthetic": true,
+        "score": 0,
+        "historical": false,
+        "checks": [
+          {
+            "field": "bedrooms",
+            "status": "pass"
+          },
+          {
+            "field": "cats_allowed",
+            "status": "fail"
+          },
+          {
+            "field": "monthly_budget",
+            "status": "pass",
+            "known_lower_bound_cents": 335000,
+            "complete": true,
+            "items": [
+              {
+                "label": "rent",
+                "amount_cents": 335000,
+                "source_id": "B-DETAILS"
+              },
+              {
+                "label": "mandatory_monthly_fees",
+                "amount_cents": 0,
+                "source_id": "B-DETAILS"
+              }
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "topic": "video_calls",
+            "status": "unknown",
+            "evidence": []
+          },
+          {
+            "topic": "quiet",
+            "status": "unknown",
+            "evidence": []
+          }
+        ],
+        "recommendation_status": "excluded",
+        "evidence_summary": {
+          "support_weight": 0,
+          "risk_weight": 0,
+          "risk_topics": [],
+          "missing_topics": [
+            "video_calls",
+            "quiet"
+          ],
+          "absence_of_risk_is_not_support": true
+        },
+        "exclusion_reasons": [
+          {
+            "kind": "hard_condition",
+            "field": "cats_allowed"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "name": "湖畔公寓（虚构）",
+        "synthetic": true,
+        "score": -1,
+        "historical": false,
+        "checks": [
+          {
+            "field": "bedrooms",
+            "status": "pass"
+          },
+          {
+            "field": "cats_allowed",
+            "status": "pass"
+          },
+          {
+            "field": "monthly_budget",
+            "status": "pass",
+            "known_lower_bound_cents": 340000,
+            "complete": true,
+            "items": [
+              {
+                "label": "rent",
+                "amount_cents": 330000,
+                "source_id": "D-DETAILS"
+              },
+              {
+                "label": "mandatory_monthly_fees",
+                "amount_cents": 10000,
+                "source_id": "D-DETAILS"
+              }
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "topic": "video_calls",
+            "status": "risk",
+            "evidence": [
+              {
+                "topic": "video_calls",
+                "direction": "risk",
+                "quote": "两次视频会议掉线，改用手机热点。",
+                "source_id": "D-R1",
+                "conditions": "未核实原因或后续修复",
+                "source": {
+                  "text": "两次视频会议掉线，改用手机热点。",
+                  "date": "2026-10-20",
+                  "type": "synthetic_resident_note"
+                }
+              }
+            ]
+          },
+          {
+            "topic": "quiet",
+            "status": "support",
+            "evidence": [
+              {
+                "topic": "quiet",
+                "direction": "support",
+                "quote": "这次入住夜间很安静。",
+                "source_id": "D-R0",
+                "conditions": "一次主观经历",
+                "source": {
+                  "text": "这次入住夜间很安静。",
+                  "date": "2026-10-20",
+                  "type": "synthetic_resident_note"
+                }
+              }
+            ]
+          }
+        ],
+        "recommendation_status": "excluded",
+        "evidence_summary": {
+          "support_weight": 2,
+          "risk_weight": 3,
+          "risk_topics": [
+            "video_calls"
+          ],
+          "missing_topics": [],
+          "absence_of_risk_is_not_support": true
+        },
+        "exclusion_reasons": [
+          {
+            "kind": "reviewed_text_conflict",
+            "candidate_id": "D",
+            "context_hash": "d413ef93a9e27bc4333ec21e7f0100e5fc976763052f29404a9d9335be5e029a",
+            "origin": "human_review",
+            "reviewer": "fictional manual-review fixture",
+            "unacceptable_condition": "已有视频会议掉线记录",
+            "reason": "虚构用户明确拒绝有此记录的候选；引用只证明存在记录，不证明当前网络质量。",
+            "citations": [
+              {
+                "source_id": "D-R1",
+                "quote": "两次视频会议掉线，改用手机热点。"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

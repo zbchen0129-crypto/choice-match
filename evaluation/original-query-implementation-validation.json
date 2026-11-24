@@ -1,0 +1,11 @@
+{
+  "scope": "automated regression and real local PostgreSQL with fake model/embedding; no semantic quality claim",
+  "tests_run": 55,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "peak_rss_mib": 48.02,
+  "memory_budget_mib": 256,
+  "time_budget_seconds": 60,
+  "live_model_calls": 0
+}

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ChoiceMatch · 有依据的选择</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<header class="topbar"><a href="/" class="brand"><span class="brand-icon">C<span>↗</span></span>ChoiceMatch</a><div class="top-links"><a href="/lab">检索实验</a><span>租房工作台</span><span class="pill">本地预览</span></div></header>
+<main>
+<section class="intro"><div><p class="eyebrow">YOUR NEEDS. CLEARER CHOICES.</p><h1>找到适合你的，<br>也看清每个取舍。</h1><p class="intro-copy">把条件、偏好与来源放在一起。每个判断，都有依据可查。</p></div><div class="intro-note"><span class="small-label">当前场景</span><strong>01 / 租房</strong><span>Chicago · 芝加哥</span><span class="muted">住宿、汽车场景待扩展</span></div></section>
+<div class="workspace">
+<aside class="requirements panel"><div class="section-heading"><h2>你的需求</h2><span class="small-label">01</span></div>
+<label for="dataset">数据来源</label><select id="dataset"><option value="demo">虚构案例 · 4 处候选</option><option value="historical">历史广告 · 芝加哥</option></select><p id="data-note" class="help"></p>
+<label for="request">用自己的话描述</label><textarea id="request" rows="4" placeholder="例如：两卧室，允许养猫，每月总费用不超过 3500 美元，希望安静、适合视频会议。"></textarea>
+<button id="parse" class="secondary full" type="button">解析为条件 <span>↗</span></button><p id="model-note" class="help">正在检查模型配置…</p>
+<div id="unhandled" class="warning" hidden><p id="unhandled-text"></p><button id="drop-unhandled" type="button" class="text-button">明确移除这些未支持的限制</button></div>
+<div class="divider"></div><div class="section-heading compact"><h3>必须满足</h3><span class="small-label">硬条件</span></div>
+<div class="field-row"><div><label for="budget">每月总预算 / USD</label><input id="budget" type="number" min="1" max="1000000" step="0.01" value="3500" placeholder="不限"></div><div><label for="bedrooms">至少几间卧室</label><select id="bedrooms"><option value="">不限</option><option value="0">0 · Studio</option><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></div></div>
+<label class="checkbox"><input type="checkbox" id="cats" checked> 必须允许养猫</label>
+<div class="divider"></div><div class="section-heading compact"><h3>更在意什么</h3><span class="small-label">影响排序</span></div>
+<div id="preferences"></div>
+<div class="preset-row"><button id="remote" type="button" class="preset">远程办公</button><button id="vacation" type="button" class="preset">休假模式</button></div>
+<button id="compare" class="primary full" type="button">更新候选 <span>→</span></button>
+<button id="rag" class="secondary full" type="button">AI 检索与解释</button><p class="help">AI 会将相关文本发送给模型服务，可能产生 API 费用。每次最多深入分析 5 个候选。</p>
+</aside>
+<section class="results" aria-label="候选结果"><div class="result-heading"><div><p class="eyebrow">YOUR SHORTLIST</p><h2>候选与取舍</h2></div><button id="export" class="secondary" type="button" disabled>导出结果 ↓</button></div>
+<div id="message" class="notice" role="status" aria-live="polite">正在载入候选…</div>
+<div class="tabs" role="group" aria-label="候选分类"><button data-bucket="eligible" class="active">已知满足 <span>0</span></button><button data-bucket="needs_verification">待核实 <span>0</span></button><button data-bucket="excluded">已排除 <span>0</span></button></div>
+<p id="result-note" class="help"></p><div id="cards"></div><div id="empty" class="empty" hidden><span>⌕</span><h3>这个分类暂无候选</h3><p>可以查看其他分类，或调整左侧条件。</p></div>
+<div id="compare-panel" class="panel compare-panel" hidden><div class="section-heading"><h3>并排比较</h3><button id="clear-compare" class="text-button">清空</button></div><div id="comparison-table" class="table-scroll"></div></div>
+</section></div>
+<footer>ChoiceMatch · Evidence-informed decisions<span>虚构案例与历史数据仅用于项目演示</span></footer>
+</main>
+<dialog id="evidence-dialog"><div class="dialog-heading"><div><p class="eyebrow">TRACE THE EVIDENCE</p><h2 id="evidence-title">证据详情</h2></div><button id="close-dialog" class="icon-button" aria-label="关闭证据详情">×</button></div><div id="evidence-body"></div></dialog>
+</body></html>

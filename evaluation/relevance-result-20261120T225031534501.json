@@ -1,0 +1,27 @@
+{
+  "status": "stopped",
+  "label_origin": "assistant-authored synthetic labels; no independent human validation",
+  "hashes": {
+    "evaluation/relevance_v1.json": "0bdb8c77534c9d84b1aa8010023822e92578c3e564b9485362fbd1e80c2ea0be",
+    "relevance.py": "065134f5282020530148eb79e5db85823ec3120f68e085544945706204d24e37",
+    "evaluate_relevance.py": "f2450211014b0e719ad3cb5ca405e6c33f24094d322bd5216f2c6d6663ea0be7",
+    "model.py": "191718e3ad0254226614dad6592e43ea724a34923051d1b28c9287fab1001e91"
+  },
+  "protocol": {
+    "max_calls": 1,
+    "max_rss_mib": 256,
+    "max_seconds": 180,
+    "case_id": "day-calls",
+    "quote_mode": "model_quote",
+    "scope": "observed development diagnosis",
+    "gate": "All risks retained; all distractors identified; no partial evidence labeled specific. Diagnostic only even if passed.",
+    "production_default_changed": false
+  },
+  "calls": 1,
+  "cases": [],
+  "model": "gpt-4.1-mini",
+  "active_case": "day-calls",
+  "error_type": "ModelError",
+  "peak_rss_mib": 32.71875,
+  "elapsed_seconds": 45.09753275010735
+}

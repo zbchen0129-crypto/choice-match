@@ -1,0 +1,48 @@
+{
+  "version": "candidate-rank-v2",
+  "purpose": "Prospective development check of candidate-rank fusion, designed from prior six-case failure analysis. Not independently human-authored or a production benchmark.",
+  "hypothesis": "Converting each candidate-level signal to a rank can reduce the two-route agreement magnitude gap, allowing original-query evidence to influence the shortlist without tuning weights.",
+  "candidate_strategy": "candidate_rank_rrf",
+  "frozen_parameters": {
+    "alpha": 0.2,
+    "rrf_constant": 60,
+    "top_k": 5,
+    "coverage_first": true,
+    "exact_ties": "competition rank",
+    "absent_signal": 0
+  },
+  "modes": [
+    "current_hybrid",
+    "score_original_20",
+    "candidate_rank_original_20",
+    "theme_vector",
+    "original_only_diagnostic"
+  ],
+  "primary_metrics": [
+    "macro scenario recall@5",
+    "macro risk recall@5"
+  ],
+  "secondary_metrics": [
+    "precision@5",
+    "new relevant sources versus score fusion",
+    "displaced risks versus score fusion",
+    "irrelevant results",
+    "per-case degradation",
+    "general topic risk recall@5 including nonspecific risks",
+    "displaced general topic risks"
+  ],
+  "promotion_rule": "Do not change production default from this small assistant-authored set. A promising result requires both primary macro metrics to improve versus score fusion, positive recall changes in at least three cases, and no lost previously retrieved risk in any case. Report all comparisons with theme-vector and original-only baselines. Failure of these gates ends this experiment without parameter search or new live reruns. Lost risks include general-topic risks even when absent from scenario-specific labels.",
+  "fairness": "Same corpus, one short source per candidate, same top-5 candidate/source budget. Structured filters identical. Single and multi-topic cases. Queries and documents are English to avoid previous mixed-language confounding; does not validate Chinese or cross-language quality. No generation calls. All modes reuse the same query embeddings within each case.",
+  "budget": {
+    "max_documents": 18,
+    "max_cases": 8,
+    "max_text_characters": 500,
+    "max_file_bytes": 30000,
+    "max_live_embedding_calls": 12,
+    "max_batch_size": 9,
+    "max_response_bytes": 4194304,
+    "max_rss_mib": 256,
+    "max_wall_seconds": 180
+  },
+  "no_tuning": "Freeze corpus, labels, code and this protocol before live calls. Record hashes in output. Preserve old failures. After inspection this set becomes development data; any later changed design needs a fresh holdout. No claim of independent annotation."
+}

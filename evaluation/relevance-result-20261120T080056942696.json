@@ -1,0 +1,83 @@
+{
+  "status": "stopped",
+  "label_origin": "assistant-authored synthetic labels; no independent human validation",
+  "hashes": {
+    "evaluation/relevance_v1.json": "0bdb8c77534c9d84b1aa8010023822e92578c3e564b9485362fbd1e80c2ea0be",
+    "relevance.py": "e069ec48a416fc50e5da47ab766cee826b79577b5e50437f0da4e7ccb3b1d0ec",
+    "evaluate_relevance.py": "edd3a28ee0dd1110379342c9dc2b779505ca7fc7bbeac45c9106d75f2ca615b8",
+    "model.py": "191718e3ad0254226614dad6592e43ea724a34923051d1b28c9287fab1001e91"
+  },
+  "protocol": {
+    "max_calls": 4,
+    "max_rss_mib": 256,
+    "max_seconds": 180,
+    "gate": "All risks retained; all distractors identified; no partial evidence labeled specific. Diagnostic only even if passed.",
+    "production_default_changed": false
+  },
+  "calls": 2,
+  "cases": [
+    {
+      "id": "night-calls",
+      "assessments": [
+        {
+          "source_id": "night-calls-0",
+          "relevance": "mention_only",
+          "direction": "none",
+          "coverage": "none",
+          "quote": "The apartment includes Wi-Fi and a smart TV.",
+          "reason": "Wi-Fi presence is mentioned but no evidence about reliable video calls or timing."
+        },
+        {
+          "source_id": "night-calls-1",
+          "relevance": "unrelated",
+          "direction": "none",
+          "coverage": "none",
+          "quote": "The conference center across the street offers reliable video conferencing.",
+          "reason": "The conference center's facilities are unrelated to the apartment's video call reliability."
+        },
+        {
+          "source_id": "night-calls-2",
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "partial",
+          "quote": "In this apartment my calls disconnected twice around 2 am.",
+          "reason": "Reports disconnections around 2 am, indicating reliability issues during requested time but not continuous four-hour span."
+        },
+        {
+          "source_id": "night-calls-3",
+          "relevance": "evidence",
+          "direction": "support",
+          "coverage": "specific",
+          "quote": "During my stay I held an uninterrupted four-hour video meeting in this apartment from 1 am to 5 am.",
+          "reason": "Explicit experience matching requested timing and duration with uninterrupted video calls."
+        }
+      ],
+      "expected": {
+        "night-calls-0": {
+          "relevance": "mention_only",
+          "direction": "none",
+          "coverage": "none"
+        },
+        "night-calls-1": {
+          "relevance": "unrelated",
+          "direction": "none",
+          "coverage": "none"
+        },
+        "night-calls-2": {
+          "relevance": "evidence",
+          "direction": "risk",
+          "coverage": "partial"
+        },
+        "night-calls-3": {
+          "relevance": "evidence",
+          "direction": "support",
+          "coverage": "specific"
+        }
+      }
+    }
+  ],
+  "model": "gpt-4.1-mini",
+  "error_type": "ValueError",
+  "peak_rss_mib": 31.296875,
+  "elapsed_seconds": 9.82858404214494
+}

@@ -1,0 +1,51 @@
+{
+  "scope": "Browser to real HTTP handler to fake RAG capture; no model/retrieval quality validation",
+  "live_calls": 0,
+  "observations": [
+    {
+      "original_query": "我每天凌晨连续开四小时跨国会议，希望网络稳定。",
+      "requirements": {
+        "hard": [
+          [
+            "bedrooms",
+            "gte",
+            2
+          ],
+          [
+            "cats_allowed",
+            "eq",
+            true
+          ]
+        ],
+        "preferences": {
+          "video_calls": 3,
+          "quiet": 2
+        },
+        "monthly_budget_cents": 350000,
+        "unhandled_requirements": []
+      }
+    },
+    {
+      "original_query": "",
+      "requirements": {
+        "hard": [
+          [
+            "bedrooms",
+            "gte",
+            2
+          ],
+          [
+            "cats_allowed",
+            "eq",
+            true
+          ]
+        ],
+        "preferences": {
+          "quiet": 2
+        },
+        "monthly_budget_cents": 350000,
+        "unhandled_requirements": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,683 @@
+{
+  "corpus_version": "synthetic-retrieval-v1",
+  "scope": "Assistant-authored synthetic development evaluation, frozen before first run. Not independently human-labelled, not real listings, not an external test set.",
+  "corpus_sha256": "8fe3ce9f85a2f3f00580c46b06d9e27d3962153928d59086f95416bda2d4bcbd",
+  "code_sha256": {
+    "hybrid.py": "e39b4a24e9fa0ad8fc7a18804cae4e0e9532b44b317f54c936d23347d47df92d",
+    "retrieval.py": "d243032d87d8f90c1d583c462dacb9995a1683bff39db4839cefe136b03648f7",
+    "evaluate_hybrid.py": "5d11033df16209ffa47435ceb50fe61a55a82797ad6559856bc39ad5122e7e2f"
+  },
+  "created_at": "2026-11-11T22:11:41.097405+00:00",
+  "embedding_model": "text-embedding-3-small",
+  "queries": {
+    "quiet": "Nighttime quiet, street noise, music, neighbors and construction noise; both good and bad experiences.",
+    "video_calls": "Internet Wi-Fi reliability for remote work video conferences, dropped calls and unstable connections.",
+    "workspace": "Desk, office chair, workspace and suitability for working long hours.",
+    "parking": "Parking availability, garage, reserved parking space, street parking and parking restrictions.",
+    "laundry": "In-unit washer dryer, shared laundry room and laundry facilities."
+  },
+  "k": 5,
+  "protocol": "Each channel retrieves up to 40 chunks, matching production default; deduplicate fused results by source, then truncate all modes to 5. Precision denominator is 5 even when fewer results return. Null-pool returns measure retrieval non-abstention, not false generated claims.",
+  "cases": [
+    {
+      "mode": "lexical",
+      "topic": "quiet",
+      "relevant": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "risks": [
+        "q3",
+        "q4"
+      ],
+      "retrieved": [
+        "q3",
+        "q1",
+        "d1",
+        "d2"
+      ],
+      "precision_at_k": 0.4,
+      "recall_at_k": 0.5,
+      "risk_recall_at_k": 0.5,
+      "reciprocal_rank": 1.0,
+      "missed_risks": [
+        "q4"
+      ]
+    },
+    {
+      "mode": "lexical",
+      "topic": "video_calls",
+      "relevant": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "risks": [
+        "v3",
+        "v4"
+      ],
+      "retrieved": [
+        "v1",
+        "v3",
+        "d3",
+        "d4"
+      ],
+      "precision_at_k": 0.4,
+      "recall_at_k": 0.5,
+      "risk_recall_at_k": 0.5,
+      "reciprocal_rank": 1.0,
+      "missed_risks": [
+        "v4"
+      ]
+    },
+    {
+      "mode": "lexical",
+      "topic": "workspace",
+      "relevant": [
+        "w1",
+        "w2",
+        "w3",
+        "w4"
+      ],
+      "risks": [
+        "w3",
+        "w4"
+      ],
+      "retrieved": [
+        "w1",
+        "w3",
+        "d5",
+        "d6"
+      ],
+      "precision_at_k": 0.4,
+      "recall_at_k": 0.5,
+      "risk_recall_at_k": 0.5,
+      "reciprocal_rank": 1.0,
+      "missed_risks": [
+        "w4"
+      ]
+    },
+    {
+      "mode": "lexical",
+      "topic": "parking",
+      "relevant": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "risks": [
+        "p3",
+        "p4"
+      ],
+      "retrieved": [
+        "p1",
+        "p3",
+        "d7",
+        "d8"
+      ],
+      "precision_at_k": 0.4,
+      "recall_at_k": 0.5,
+      "risk_recall_at_k": 0.5,
+      "reciprocal_rank": 1.0,
+      "missed_risks": [
+        "p4"
+      ]
+    },
+    {
+      "mode": "lexical",
+      "topic": "laundry",
+      "relevant": [
+        "l1",
+        "l2",
+        "l3",
+        "l4"
+      ],
+      "risks": [
+        "l3",
+        "l4"
+      ],
+      "retrieved": [
+        "l1",
+        "l3",
+        "d9"
+      ],
+      "precision_at_k": 0.4,
+      "recall_at_k": 0.5,
+      "risk_recall_at_k": 0.5,
+      "reciprocal_rank": 1.0,
+      "missed_risks": [
+        "l4"
+      ]
+    },
+    {
+      "mode": "semantic",
+      "topic": "quiet",
+      "relevant": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "risks": [
+        "q3",
+        "q4"
+      ],
+      "retrieved": [
+        "q3",
+        "d2",
+        "q2",
+        "q4",
+        "q1"
+      ],
+      "precision_at_k": 0.8,
+      "recall_at_k": 1.0,
+      "risk_recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "missed_risks": []
+    },
+    {
+      "mode": "semantic",
+      "topic": "video_calls",
+      "relevant": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "risks": [
+        "v3",
+        "v4"
+      ],
+      "retrieved": [
+        "v1",
+        "v3",
+        "v4",
+        "v2",
+        "w2"
+      ],
+      "precision_at_k": 0.8,
+      "recall_at_k": 1.0,
+      "risk_recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "missed_risks": []
+    },
+    {
+      "mode": "semantic",
+      "topic": "workspace",
+      "relevant": [
+        "w1",
+        "w2",
+        "w3",
+        "w4"
+      ],
+      "risks": [
+        "w3",
+        "w4"
+      ],
+      "retrieved": [
+        "w1",
+        "w2",
+        "w3",
+        "d5",
+        "w4"
+      ],
+      "precision_at_k": 0.8,
+      "recall_at_k": 1.0,
+      "risk_recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "missed_risks": []
+    },
+    {
+      "mode": "semantic",
+      "topic": "parking",
+      "relevant": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "risks": [
+        "p3",
+        "p4"
+      ],
+      "retrieved": [
+        "p1",
+        "d7",
+        "p3",
+        "p2",
+        "d8"
+      ],
+      "precision_at_k": 0.6,
+      "recall_at_k": 0.75,
+      "risk_recall_at_k": 0.5,
+      "reciprocal_rank": 1.0,
+      "missed_risks": [
+        "p4"
+      ]
+    },
+    {
+      "mode": "semantic",
+      "topic": "laundry",
+      "relevant": [
+        "l1",
+        "l2",
+        "l3",
+        "l4"
+      ],
+      "risks": [
+        "l3",
+        "l4"
+      ],
+      "retrieved": [
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "w1"
+      ],
+      "precision_at_k": 0.8,
+      "recall_at_k": 1.0,
+      "risk_recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "missed_risks": []
+    },
+    {
+      "mode": "hybrid",
+      "topic": "quiet",
+      "relevant": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "risks": [
+        "q3",
+        "q4"
+      ],
+      "retrieved": [
+        "q3",
+        "d2",
+        "q1",
+        "d1",
+        "q2"
+      ],
+      "precision_at_k": 0.6,
+      "recall_at_k": 0.75,
+      "risk_recall_at_k": 0.5,
+      "reciprocal_rank": 1.0,
+      "missed_risks": [
+        "q4"
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "topic": "video_calls",
+      "relevant": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "risks": [
+        "v3",
+        "v4"
+      ],
+      "retrieved": [
+        "v1",
+        "v3",
+        "d4",
+        "d3",
+        "v4"
+      ],
+      "precision_at_k": 0.6,
+      "recall_at_k": 0.75,
+      "risk_recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "missed_risks": []
+    },
+    {
+      "mode": "hybrid",
+      "topic": "workspace",
+      "relevant": [
+        "w1",
+        "w2",
+        "w3",
+        "w4"
+      ],
+      "risks": [
+        "w3",
+        "w4"
+      ],
+      "retrieved": [
+        "w1",
+        "w3",
+        "d5",
+        "d6",
+        "w2"
+      ],
+      "precision_at_k": 0.6,
+      "recall_at_k": 0.75,
+      "risk_recall_at_k": 0.5,
+      "reciprocal_rank": 1.0,
+      "missed_risks": [
+        "w4"
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "topic": "parking",
+      "relevant": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "risks": [
+        "p3",
+        "p4"
+      ],
+      "retrieved": [
+        "p1",
+        "p3",
+        "d7",
+        "d8",
+        "p2"
+      ],
+      "precision_at_k": 0.6,
+      "recall_at_k": 0.75,
+      "risk_recall_at_k": 0.5,
+      "reciprocal_rank": 1.0,
+      "missed_risks": [
+        "p4"
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "topic": "laundry",
+      "relevant": [
+        "l1",
+        "l2",
+        "l3",
+        "l4"
+      ],
+      "risks": [
+        "l3",
+        "l4"
+      ],
+      "retrieved": [
+        "l1",
+        "l3",
+        "d9",
+        "l2",
+        "l4"
+      ],
+      "precision_at_k": 0.8,
+      "recall_at_k": 1.0,
+      "risk_recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "missed_risks": []
+    }
+  ],
+  "null_pool_cases": [
+    {
+      "mode": "lexical",
+      "topic": "quiet",
+      "retrieved": [
+        "d1",
+        "d2"
+      ]
+    },
+    {
+      "mode": "lexical",
+      "topic": "video_calls",
+      "retrieved": [
+        "d3",
+        "d4"
+      ]
+    },
+    {
+      "mode": "lexical",
+      "topic": "workspace",
+      "retrieved": [
+        "d5",
+        "d6"
+      ]
+    },
+    {
+      "mode": "lexical",
+      "topic": "parking",
+      "retrieved": [
+        "d7",
+        "d8"
+      ]
+    },
+    {
+      "mode": "lexical",
+      "topic": "laundry",
+      "retrieved": [
+        "d9"
+      ]
+    },
+    {
+      "mode": "semantic",
+      "topic": "quiet",
+      "retrieved": [
+        "d2",
+        "d1",
+        "d7",
+        "d8",
+        "d4"
+      ]
+    },
+    {
+      "mode": "semantic",
+      "topic": "video_calls",
+      "retrieved": [
+        "d4",
+        "d2",
+        "d6",
+        "d1",
+        "d9"
+      ]
+    },
+    {
+      "mode": "semantic",
+      "topic": "workspace",
+      "retrieved": [
+        "d5",
+        "d6",
+        "d2",
+        "d1",
+        "d7"
+      ]
+    },
+    {
+      "mode": "semantic",
+      "topic": "parking",
+      "retrieved": [
+        "d7",
+        "d8",
+        "d6",
+        "d4",
+        "d10"
+      ]
+    },
+    {
+      "mode": "semantic",
+      "topic": "laundry",
+      "retrieved": [
+        "d10",
+        "d9",
+        "d6",
+        "d7",
+        "d5"
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "topic": "quiet",
+      "retrieved": [
+        "d1",
+        "d2",
+        "d7",
+        "d8",
+        "d4"
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "topic": "video_calls",
+      "retrieved": [
+        "d4",
+        "d3",
+        "d2",
+        "d6",
+        "d1"
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "topic": "workspace",
+      "retrieved": [
+        "d5",
+        "d6",
+        "d2",
+        "d1",
+        "d7"
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "topic": "parking",
+      "retrieved": [
+        "d7",
+        "d8",
+        "d6",
+        "d4",
+        "d10"
+      ]
+    },
+    {
+      "mode": "hybrid",
+      "topic": "laundry",
+      "retrieved": [
+        "d9",
+        "d10",
+        "d6",
+        "d7",
+        "d5"
+      ]
+    }
+  ],
+  "index_input_tokens": 617,
+  "shortlist": {
+    "selected": [
+      "C",
+      "A",
+      "F",
+      "E",
+      "D"
+    ],
+    "risk_context_checks": [
+      {
+        "candidate": "C",
+        "expected_risks": [
+          "q3",
+          "v3"
+        ],
+        "context_sources": [
+          "l3",
+          "p3",
+          "q3",
+          "v3",
+          "w3"
+        ],
+        "missing_risks": []
+      },
+      {
+        "candidate": "A",
+        "expected_risks": [],
+        "context_sources": [
+          "l1",
+          "p1",
+          "q1",
+          "v1",
+          "w1"
+        ],
+        "missing_risks": []
+      },
+      {
+        "candidate": "F",
+        "expected_risks": [],
+        "context_sources": [
+          "d10",
+          "d2",
+          "d4",
+          "d6",
+          "d8"
+        ],
+        "missing_risks": []
+      },
+      {
+        "candidate": "E",
+        "expected_risks": [],
+        "context_sources": [
+          "d1",
+          "d3",
+          "d5",
+          "d7",
+          "d9"
+        ],
+        "missing_risks": []
+      },
+      {
+        "candidate": "D",
+        "expected_risks": [
+          "q4",
+          "v4"
+        ],
+        "context_sources": [
+          "l4",
+          "p4",
+          "q4",
+          "v4",
+          "w4"
+        ],
+        "missing_risks": []
+      }
+    ],
+    "unrelated_candidates_selected": [
+      "F",
+      "E"
+    ],
+    "scope": "Checks context inclusion only, not extraction or recommendation quality. Only five sources per candidate: does not stress context truncation."
+  },
+  "summary": {
+    "lexical": {
+      "precision_at_k": 0.4,
+      "recall_at_k": 0.5,
+      "risk_recall_at_k": 0.5,
+      "reciprocal_rank": 1.0,
+      "null_pool_non_abstention_rate": 1.0
+    },
+    "semantic": {
+      "precision_at_k": 0.76,
+      "recall_at_k": 0.95,
+      "risk_recall_at_k": 0.9,
+      "reciprocal_rank": 1.0,
+      "null_pool_non_abstention_rate": 1.0
+    },
+    "hybrid": {
+      "precision_at_k": 0.64,
+      "recall_at_k": 0.8,
+      "risk_recall_at_k": 0.7,
+      "reciprocal_rank": 1.0,
+      "null_pool_non_abstention_rate": 1.0
+    }
+  },
+  "uncached_query_input_tokens": 40
+}

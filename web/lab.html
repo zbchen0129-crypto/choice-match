@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ChoiceMatch · 检索实验室</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/lab.css"><script src="/lab.js" defer></script></head>
+<body class="lab"><header class="topbar"><a class="brand" href="/">ChoiceMatch</a><a href="/">返回租房工作台</a></header>
+<main><section class="intro"><div><p class="eyebrow">RETRIEVAL LAB</p><h1>调一份权重，看证据如何变化。</h1><p class="intro-copy">在同一批检索结果上比较主题与原问题的侧重，观察召回收益，也保留风险损失。</p></div></section>
+<div class="notice">开发实验 · 8 个已观察的模拟问题，18 条虚构来源。所有切换使用预计算结果，不调用模型，不改变正常推荐设置。这里的结果不能证明真实用户效果。</div>
+<p id="load-status" role="status" aria-live="polite">正在加载离线实验…</p>
+<section class="panel controls" aria-label="实验设置"><div><label for="lab-case">模拟问题</label><select id="lab-case" disabled></select><p id="lab-query" class="query"></p><p id="lab-topics" class="help"></p></div>
+<fieldset id="weight-controls" disabled><legend>原问题的权重 α</legend><div class="weight-options" id="weight-options"></div><p id="weight-description" class="help"></p></fieldset>
+<p class="help rule">固定规则：每主题取最大片段分，按用户偏好加权平均；两部分分别转换为候选排名再融合。始终先比较主题命中数，再比较总分。α = 100% 也不绕过覆盖优先。</p></section>
+<section aria-label="当前问题结果"><div class="result-heading"><h2>这个问题的前五名</h2><button class="secondary" id="lab-export" disabled>导出当前实验</button></div><p class="help">变化以排名融合 α = 20% 为基准，非生产默认。分数表示检索相关性，不表示推荐适合度。所有相关性和风险标签均为开发者预先标注。</p>
+<div class="metric-grid" id="case-metrics"></div><div class="changes" id="lab-changes" aria-live="polite"></div><div id="lab-candidates"></div></section>
+<section class="panel aggregate" aria-label="全部问题汇总"><h2>全部 8 个问题 · 固定五档对照</h2><p class="help">这是开发集上的敏感性分析，不选择“最佳权重”。百分比为逐问题宏平均；风险列分别衡量具体场景风险和一般主题风险。</p><div class="table-scroll"><table><thead><tr><th>原问题权重</th><th>场景召回</th><th>场景风险召回</th><th>一般风险召回</th><th>召回下降问题数</th><th>丢失风险问题数</th></tr></thead><tbody id="lab-summary"></tbody></table></div><p id="theme-baseline" class="help"></p></section>
+<footer><span>ChoiceMatch · 可复现检索实验</span><span id="lab-provenance"></span></footer></main></body></html>
