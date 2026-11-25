@@ -1,6 +1,6 @@
 # GitHub release preparation
 
-Status on 2026-11-24: local portfolio documentation prepared; no remote repository created, no push, no deployment, and no changes to a live resume or LinkedIn profile.
+Publication update on 2026-11-24: project code has been committed to https://github.com/zbchen0129-crypto/choice-match. Public visibility has been verified through GitHub metadata and an unauthenticated HTTPS clone. ChoiceMatch and its public GitHub link have been added to the LinkedIn Projects section, and the local career library has been updated. No hosted app deployment is claimed. The checklist below records the preparation process.
 
 ## Completed locally
 
@@ -16,7 +16,7 @@ Status on 2026-11-24: local portfolio documentation prepared; no remote reposito
 
 This directory currently lives inside a shared workspace containing other projects. Publish only ChoiceMatch from a dedicated repository or an explicitly isolated export. Do not stage, push, or copy the entire parent workspace. Do not include ignored files, local database contents, downloaded historical datasets, environment files, or virtual environments.
 
-No license is selected yet. Choose a license explicitly before representing the code as licensed open source. Preserve data attribution separately from any future code license. The repository name/account and public visibility must be settled before publication; no remote destination is assumed here.
+No license is selected yet. Choose a license explicitly before representing the code as licensed open source. Preserve data attribution separately from any future code license. The public repository is https://github.com/zbchen0129-crypto/choice-match.
 
 Before the first push, inspect the exact staged file list and staged diff, rerun the file audit, and verify the public package from an isolated copy. The current audit examines Git-visible project files, not a finalized staging area. A clean-machine installation and CI matrix are not yet verified.
 
@@ -30,4 +30,8 @@ Live inventory, Zillow/Redfin integration, deployed multi-user service, independ
 
 ## Suggested next milestone
 
-Create an isolated publication candidate containing only the reviewed project files, verify the no-key walkthrough there, settle the license and remote visibility, then publish. After a stable repository URL exists, adapt the draft project bullets to the actual target role and resume format.
+Adapt the published project bullets to the actual target role and resume format, prepare a short demonstration, and choose a code license if desired. Public source publication is complete; hosted deployment remains a separate milestone.
+
+## Initial publication verification
+
+Commit `e8b195b74ad3c97803ac778bcc6ec8f778f42db0` contains the 97 reviewed project files, uploaded through the GitHub connector. An isolated copy passed 89 offline tests; five database tests were skipped as expected. The full configured workspace previously passed all 94. No downloaded data, secrets, virtual environment, career-library files, or adjacent projects were included.
